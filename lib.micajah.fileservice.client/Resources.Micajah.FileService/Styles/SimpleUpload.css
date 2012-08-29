@@ -1,0 +1,168 @@
+.RadUpload_SimpleUpload
+{
+    width: auto;
+    font-size: 12px;
+    font-family: Verdana, Arial, Sans-Serif;
+}
+
+.RadUpload_SimpleUpload .ruInputs
+{
+    zoom: normal !important;
+}
+
+.RadUpload_SimpleUpload .ruInputs li
+{
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    vertical-align: bottom !important;
+}
+
+.RadUpload_SimpleUpload .ruButton
+{
+    height: 17px;
+}
+
+.RadUpload_SimpleUpload .ruRemove
+{
+    text-decoration: underline !important;
+    color: Gray;
+    background-color: Transparent;
+    font-family: Verdana;
+    font-size: 10px;
+    width: 52px;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    vertical-align: bottom !important;
+}
+
+.RadUpload_SimpleUpload .ruRemove:hover, .RadUpload_SimpleUpload input.hover
+{
+    text-decoration: none;
+    color: White;
+    background-color: #5c5c5c;
+}
+
+.suFixedFilesList
+{
+    height: 160px;
+    width: 480px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.suFileWrap, .suFileWrap:hover, .suFileWrapAdded
+{
+    padding-right: 3px;
+    font-size: 12px;
+    font-family: Verdana;
+    color: Black;
+}
+
+.suFileWrapAdded
+{
+    font-style: italic;
+}
+
+.suPaperClip
+{
+    float: left;
+    margin: 3px 12px 0 0;
+    width: 10px;
+    height: 33px;
+}
+
+.suTitle
+{
+    font-family: Arial;
+    font-size: 13px;
+    padding-bottom: 3px;
+}
+
+.suTitle span
+{
+    color: Gray;
+    font-size: 11px;
+}
+
+.suFileTypeIcon
+{
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.suError
+{
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+    color: Red;
+    padding: 3px 0 3px 0;
+}
+
+.suFixedErrorArea
+{
+    height: 26px;
+    width: 445px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.suProgressArea
+{
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -100px;
+    position: fixed;
+    top: 50%;
+    width: 500px;
+}
+
+.suProgressArea h2
+{
+    position: relative;
+    top: 26px;
+    left: 18px;
+    margin: 0;
+    padding: 0;
+    color: White;
+}
+
+.suChangeModeMessage
+{
+    font-family: Arial;
+    font-size: 11px;
+    color: Gray;
+    display: inline;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+.suChangeModeMessage a
+{
+    font-family: Arial;
+    padding: 1px 2px 2px 2px;
+    font-size: 11px;
+    color: Gray;
+    cursor: pointer;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+.suChangeModeMessage a:hover
+{
+    color: White;
+    background-color: #5c5c5c;
+}
+
+.suUploadButton
+{
+    width: 230px;
+    position: absolute;
+    top: 275px;
+    left: 120px;
+    font-weight: bold;
+    padding: 10px;
+}

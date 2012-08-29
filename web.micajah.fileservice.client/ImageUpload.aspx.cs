@@ -1,0 +1,36 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+namespace Micajah.FileService.Web
+{
+    public partial class ImageUploadPage : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ImageUpload2.AcceptChanges();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ImageUpload2.RejectChanges();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            ImageUpload2.LocalObjectId = ((ImageUpload2.LocalObjectId == "4") ? "5" : "4");
+        }
+    }
+}

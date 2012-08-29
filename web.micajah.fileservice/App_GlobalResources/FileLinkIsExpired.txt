@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>File Not Available</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Calibri, Arial, Helvetica;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Oops, the file link you are using is expired.</h1>
+    <h2>
+        Try to refresh the parent page linking to this file and clicking the link again.</h2>
+    Some file links have an expiration period. It appears the link you clicked has expired.
+    You should return to the application with the link to this file and try to refresh
+    the page. After refreshing, try opening this file again.
+</body>
+</html>

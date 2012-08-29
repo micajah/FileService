@@ -1,0 +1,72 @@
+.iuContainer, .iuContainer p, .iuContainer a, .iuContainer input, .iuContainer label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	text-decoration: none;
+}
+
+.iuContainer
+{
+	margin: 2px;
+}
+
+.iuContainer .iuPanel
+{
+	height: 25px;
+	padding: 10px 0 10px 0;
+}
+
+.iuContainer .iuError
+{
+	font-weight: bold;
+	color: Red;
+	padding: 0 0 10px 0;
+}
+
+.iuContainer .iuImageView
+{
+	border: solid 1px #cccccc !important;
+	padding: 1px;
+	text-align: center;
+	background-color: White;
+}
+
+.iuContainer .iuImageView span
+{
+    font-size: 12px;
+    color: #cccccc;
+}
+
+.iuContainer .iuUploadButton
+{
+    font-weight: bold;
+	font-size: 11px;
+	width: 190px;
+}
+
+.iuContainer .iuButtonSeparator
+{
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.iuContainer .iuCloseButton
+{
+	font-weight: bold;
+	font-size: 11px;
+	color: #5c5c5c;
+	text-decoration: underline;
+}
+
+.iuContainer a.iuRemove
+{
+	font-size: 11px;
+	text-decoration: underline;
+}
+
+.iuContainer a.iuRemove:hover
+{
+	font-size: 11px;
+	color: Red;
+}

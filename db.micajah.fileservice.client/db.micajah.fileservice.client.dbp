@@ -1,0 +1,18 @@
+# Microsoft Developer Studio Project File - Database Project
+Begin DataProject = "db.micajah.fileservice.client"
+   MSDTVersion = "80"
+   SccProjectName = "SAK"
+   SccLocalPath = "SAK"
+   SccAuxPath = "SAK"
+   SccProvider = "SAK"
+   Begin Folder = "Change Scripts"
+      Script = "v4.sql"
+   End
+   Begin Folder = "Create Scripts"
+      Script = "v4.sql"
+   End
+   Begin DBRefFolder = "Database References"
+   End
+   Begin Folder = "Queries"
+   End
+End

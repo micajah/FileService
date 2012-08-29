@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F288F4C6-1D31-4A9D-A731-89749F7EFA47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Micajah.FileService.Client</RootNamespace>
+    <AssemblyName>Micajah.FileService</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Micajah.FileService.Client.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for lib.micajah.fileservice.client.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <CodeAnalysisRuleSet>Migrated rules for lib.micajah.fileservice.client.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\WSE 3.0 Runtime\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.Design, Version=2011.1.413.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Runtime\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2011.1.413.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Runtime\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Access.cs" />
+    <Compile Include="Classes\MimeType.cs" />
+    <Compile Include="Classes\ResourceHandler.cs" />
+    <Compile Include="Classes\ResourceVirtualPathProvider.cs" />
+    <Compile Include="Classes\Support.cs" />
+    <Compile Include="Dal\MetaDataSet.cs">
+      <DependentUpon>MetaDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dal\MetaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MetaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="Web References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\Enums.cs" />
+    <Compile Include="WebControls\FileList.cs" />
+    <Compile Include="WebControls\ImageUpload.cs" />
+    <Compile Include="WebControls\IUploadControl.cs" />
+    <Compile Include="WebControls\SimpleUpload.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Migrated rules for lib.micajah.fileservice.client.ruleset" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="wse3policyCache.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.Micajah.FileService\Scripts\SimpleUpload.js" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Styles\SimpleUpload.css" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\PaperClip.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\doc.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\generic.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\gif.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\html.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\jpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\mp3.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\pdf.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\txt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\xls.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\zip.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Styles\FileList.css" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Pages\ImageUpload.aspx" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Scripts\ImageUpload.js" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Styles\ImageUpload.css" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\doc.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\generic.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\html.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\mp3.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\pdf.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\txt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\xls.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\zip.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\doc.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\docx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\generic.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\htm.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\html.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\mp3.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\pdf.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\txt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\xls.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\xlsx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\zip.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\docx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\htm.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\xlsx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\docx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\htm.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\xlsx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Video.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Pages\SimpleUpload.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.Micajah.FileService\Pages\FileList.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.Micajah.FileService\Scripts\SwfUpload.js" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Swf\SwfUpload.swf" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Scripts\SwfUpload.Speed.js" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\jpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\jpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Scripts\FileList.js" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\gif.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\gif.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\doc.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\docx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\generic.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\gif.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\htm.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\html.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\jpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\mp3.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\pdf.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\txt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\xls.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\xlsx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\zip.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\png.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\png.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\png.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\png.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\bmp.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\bmp.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\bmp.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\bmp.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\ogg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\ogg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\ogg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\ogg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\wav.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\wav.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\wav.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\wav.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\wma.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\wma.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\wma.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\wma.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\avi.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\mpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\wmv.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\avi.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\avi.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\avi.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\mpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\mpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\mpg.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\wmv.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\wmv.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\wmv.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\mov.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\mov.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\mov.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\mov.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\ppt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons16x16\pptx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\ppt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons32x32\pptx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\ppt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons48x48\pptx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\ppt.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Images\Icons128x128\pptx.gif" />
+    <EmbeddedResource Include="Resources.Micajah.FileService\Scripts\FlashDetection.js" />
+    <Content Include="Runtime\Telerik.Web.Design.dll" />
+    <Content Include="Runtime\Telerik.Web.UI.dll" />
+    <None Include="Web References\WebService\FileMTOMService.disco" />
+    <None Include="Dal\MetaDataSet.xsc">
+      <DependentUpon>MetaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dal\MetaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MetaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dal\MetaDataSet.xss">
+      <DependentUpon>MetaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dal\MetaDataSet.xsx">
+      <DependentUpon>MetaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Micajah.FileService.Client.snk" />
+    <None Include="Web References\WebService\FileMTOMService.wsdl" />
+    <None Include="Web References\WebService\GetFileResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:1572/web.micajah.fileservice/FileMTOMService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService\</RelPath>
+      <UpdateFromURL>http://localhost:1572/web.micajah.fileservice/FileMTOMService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebServiceUrl</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

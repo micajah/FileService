@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.bigwebapps.com/webservices/filemanager/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.bigwebapps.com/webservices/filemanager/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.bigwebapps.com/webservices/filemanager/">
+      <s:element name="CopyFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationOrganizationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="destinationDepartmentGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CopyFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CopyFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileSize" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="align" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileMimeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFileInfoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileSize" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="align" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileMimeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getFileResponse" nillable="true" type="tns:GetFileResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetFileResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetThumbnail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="width" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="height" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="align" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetThumbnailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getFileResponse" nillable="true" type="tns:GetFileResponse" />
+            <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemporaryFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemporaryFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTemporaryFilesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="getFileResponseStreaming" nillable="true" type="tns:GetFileRequestStreaming" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetFileRequestStreaming">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fileData" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PutFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutFileResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutFileFromUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applicationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileUrl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PutFileFromUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutFileFromUrlResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="organizationGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTemporaryFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTemporaryFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetTemporaryFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="getFileResponseStreaming" nillable="true" type="tns:GetFileRequestStreaming" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFileFromUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileUrl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFileFromUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateFileFromUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFileExpirationRequired">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="expirationRequired" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFileExpirationRequiredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateFileExpirationRequiredResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CopyFileSoapIn">
+    <wsdl:part name="parameters" element="tns:CopyFile" />
+  </wsdl:message>
+  <wsdl:message name="CopyFileSoapOut">
+    <wsdl:part name="parameters" element="tns:CopyFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFile" />
+  </wsdl:message>
+  <wsdl:message name="GetFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetThumbnailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetThumbnail" />
+  </wsdl:message>
+  <wsdl:message name="GetThumbnailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetThumbnailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemporaryFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemporaryFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetTemporaryFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemporaryFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutFileSoapIn">
+    <wsdl:part name="parameters" element="tns:PutFile" />
+  </wsdl:message>
+  <wsdl:message name="PutFileSoapOut">
+    <wsdl:part name="parameters" element="tns:PutFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="PutFileFromUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:PutFileFromUrl" />
+  </wsdl:message>
+  <wsdl:message name="PutFileFromUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:PutFileFromUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTemporaryFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTemporaryFile" />
+  </wsdl:message>
+  <wsdl:message name="SetTemporaryFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTemporaryFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFile" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFileFromUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFileFromUrl" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFileFromUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFileFromUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFileExpirationRequiredSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFileExpirationRequired" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFileExpirationRequiredSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFileExpirationRequiredResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FileMtomServiceSoap">
+    <wsdl:operation name="CopyFile">
+      <wsdl:input message="tns:CopyFileSoapIn" />
+      <wsdl:output message="tns:CopyFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <wsdl:input message="tns:GetFileInfoSoapIn" />
+      <wsdl:output message="tns:GetFileInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <wsdl:input message="tns:GetFileSoapIn" />
+      <wsdl:output message="tns:GetFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnail">
+      <wsdl:input message="tns:GetThumbnailSoapIn" />
+      <wsdl:output message="tns:GetThumbnailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileSoapIn" />
+      <wsdl:output message="tns:DeleteFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemporaryFiles">
+      <wsdl:input message="tns:GetTemporaryFilesSoapIn" />
+      <wsdl:output message="tns:GetTemporaryFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutFile">
+      <wsdl:input message="tns:PutFileSoapIn" />
+      <wsdl:output message="tns:PutFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PutFileFromUrl">
+      <wsdl:input message="tns:PutFileFromUrlSoapIn" />
+      <wsdl:output message="tns:PutFileFromUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTemporaryFile">
+      <wsdl:input message="tns:SetTemporaryFileSoapIn" />
+      <wsdl:output message="tns:SetTemporaryFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFile">
+      <wsdl:input message="tns:UpdateFileSoapIn" />
+      <wsdl:output message="tns:UpdateFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileFromUrl">
+      <wsdl:input message="tns:UpdateFileFromUrlSoapIn" />
+      <wsdl:output message="tns:UpdateFileFromUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileExpirationRequired">
+      <wsdl:input message="tns:UpdateFileExpirationRequiredSoapIn" />
+      <wsdl:output message="tns:UpdateFileExpirationRequiredSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FileMtomServiceSoap" type="tns:FileMtomServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CopyFile">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/CopyFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnail">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetThumbnail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemporaryFiles">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetTemporaryFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutFile">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/PutFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutFileFromUrl">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/PutFileFromUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTemporaryFile">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/SetTemporaryFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFile">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/UpdateFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileFromUrl">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/UpdateFileFromUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileExpirationRequired">
+      <soap:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/UpdateFileExpirationRequired" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FileMtomServiceSoap12" type="tns:FileMtomServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CopyFile">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/CopyFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetFileInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFile">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnail">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetThumbnail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemporaryFiles">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/GetTemporaryFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutFile">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/PutFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutFileFromUrl">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/PutFileFromUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTemporaryFile">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/SetTemporaryFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFile">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/UpdateFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileFromUrl">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/UpdateFileFromUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFileExpirationRequired">
+      <soap12:operation soapAction="http://www.bigwebapps.com/webservices/filemanager/UpdateFileExpirationRequired" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileMtomService">
+    <wsdl:port name="FileMtomServiceSoap" binding="tns:FileMtomServiceSoap">
+      <soap:address location="http://localhost:1572/web.micajah.fileservice/FileMTOMService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FileMtomServiceSoap12" binding="tns:FileMtomServiceSoap12">
+      <soap12:address location="http://localhost:1572/web.micajah.fileservice/FileMTOMService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
