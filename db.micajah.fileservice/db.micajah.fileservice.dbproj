@@ -75,6 +75,12 @@
     <NotInBuild Include="Create Scripts\Tables.sql" />
     <NotInBuild Include="Create Scripts\TablesData.sql" />
     <NotInBuild Include="Create Scripts\Views.sql" />
+    <NotInBuild Include="Change Scripts\RestoreFromMetadata1.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Change Scripts\RestoreFromMetadata2.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
   </ItemGroup>
   <ItemGroup>
     <BuildContributorArgument Include="OutDir=$(OutDir)" />
