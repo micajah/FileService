@@ -7,9 +7,9 @@ Tools
 
 Copy Files
 ----------
-Tool used to change the organizatioin id of all files in the repository
+Tool to copy the files from one organization to another.
 
 
 Restore Files
 -------------
-Tool used to restore files for local application meta data to the file service db.
+Tool to fix the data of the File Service after restoring it from metadata database
