@@ -5,7 +5,7 @@ GO
 CREATE SCHEMA [mfs] AUTHORIZATION [dbo]
 GO
 
-EXEC sys.sp_addextendedproperty @name=N'Version', @value=N'43' , @level0type=N'SCHEMA',@level0name=N'mfs'
+EXEC sys.sp_addextendedproperty @name=N'Version', @value=N'4' , @level0type=N'SCHEMA',@level0name=N'mfs'
 GO
 
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[mfs].[File]') AND type in (N'U'))
