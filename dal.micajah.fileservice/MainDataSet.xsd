@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ApplicationTableAdapter" GeneratorDataComponentClassName="ApplicationTableAdapter" Name="Application" UserDataComponentName="ApplicationTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendorApplications" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendorApplications" GetMethodModifier="Public" GetMethodName="GetVendorApplications" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendorApplications" UserSourceName="GetVendorApplications">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendorApplications" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendorApplications" GetMethodModifier="Public" GetMethodName="GetVendorApplications" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendorApplications" UserSourceName="GetVendorApplications">
                 <InsertCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.InsertApplication</CommandText>
@@ -48,7 +48,7 @@
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetApplication" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetApplication" GetMethodModifier="Public" GetMethodName="GetApplication" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetApplication" UserSourceName="GetApplication">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetApplication" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetApplication" GetMethodModifier="Public" GetMethodName="GetApplication" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetApplication" UserSourceName="GetApplication">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetApplication</CommandText>
@@ -63,7 +63,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VendorTableAdapter" GeneratorDataComponentClassName="VendorTableAdapter" Name="Vendor" UserDataComponentName="VendorTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendors" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendors" GetMethodModifier="Public" GetMethodName="GetVendors" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendors" UserSourceName="GetVendors">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendors" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendors" GetMethodModifier="Public" GetMethodName="GetVendors" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendors" UserSourceName="GetVendors">
                 <InsertCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.InsertVendor</CommandText>
@@ -99,7 +99,7 @@
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendor" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendor" GetMethodModifier="Public" GetMethodName="GetVendor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendor" UserSourceName="GetVendor">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendor" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendor" GetMethodModifier="Public" GetMethodName="GetVendor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendor" UserSourceName="GetVendor">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetVendor</CommandText>
@@ -110,7 +110,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendorsUsedSpace" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendorsUsedSpace" GetMethodModifier="Public" GetMethodName="GetVendorsUsedSpace" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendorsUsedSpace" UserSourceName="GetVendorsUsedSpace">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetVendorsUsedSpace" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetVendorsUsedSpace" GetMethodModifier="Public" GetMethodName="GetVendorsUsedSpace" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetVendorsUsedSpace" UserSourceName="GetVendorsUsedSpace">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.GetVendorsUsedSpace</CommandText>
@@ -127,7 +127,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DepartmentTableAdapter" GeneratorDataComponentClassName="DepartmentTableAdapter" Name="Department" UserDataComponentName="DepartmentTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.Department" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.Department" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Department] WHERE (([DepartmentGuid] = @Original_DepartmentGuid) AND ([OrganizationGuid] = @Original_OrganizationGuid) AND ([Name] = @Original_Name))</CommandText>
@@ -177,7 +177,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateOrganizationDepartment" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateOrganizationDepartment" Modifier="Public" Name="UpdateOrganizationDepartment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateOrganizationDepartment">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateOrganizationDepartment" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateOrganizationDepartment" Modifier="Public" Name="UpdateOrganizationDepartment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateOrganizationDepartment">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.UpdateOrganizationDepartment</CommandText>
@@ -197,7 +197,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FileTableAdapter" GeneratorDataComponentClassName="FileTableAdapter" Name="File" UserDataComponentName="FileTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.[File]" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetFile" GetMethodModifier="Public" GetMethodName="GetFile" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetFile" UserSourceName="GetFile">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.[File]" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetFile" GetMethodModifier="Public" GetMethodName="GetFile" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetFile" UserSourceName="GetFile">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetFile</CommandText>
@@ -231,7 +231,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
               <Mapping SourceColumn="OrganizationGuid" DataSetColumn="OrganizationGuid" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.DeleteFile" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="DeleteFile" GetMethodModifier="Public" GetMethodName="DeleteFile" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="DeleteFile" UserSourceName="DeleteFile">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.DeleteFile" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="DeleteFile" GetMethodModifier="Public" GetMethodName="DeleteFile" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="DeleteFile" UserSourceName="DeleteFile">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.DeleteFile</CommandText>
@@ -242,7 +242,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetFiles" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetFiles" GetMethodModifier="Public" GetMethodName="GetFiles" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetFiles" UserSourceName="GetFiles">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetFiles" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetFiles" GetMethodModifier="Public" GetMethodName="GetFiles" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetFiles" UserSourceName="GetFiles">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetFiles</CommandText>
@@ -253,7 +253,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetTemporaryFiles" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetTemporaryFiles" GetMethodModifier="Public" GetMethodName="GetTemporaryFiles" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetTemporaryFiles" UserSourceName="GetTemporaryFiles">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetTemporaryFiles" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetTemporaryFiles" GetMethodModifier="Public" GetMethodName="GetTemporaryFiles" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetTemporaryFiles" UserSourceName="GetTemporaryFiles">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetTemporaryFiles</CommandText>
@@ -264,7 +264,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetThumbnailFileUniqueId" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GetThumbnailFileUniqueId" Modifier="Public" Name="GetThumbnailFileUniqueId" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetThumbnailFileUniqueId">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetThumbnailFileUniqueId" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="GetThumbnailFileUniqueId" Modifier="Public" Name="GetThumbnailFileUniqueId" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetThumbnailFileUniqueId">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetThumbnailFileUniqueId</CommandText>
@@ -279,7 +279,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateFile" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateFile" Modifier="Public" Name="UpdateFile" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateFile">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateFile" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateFile" Modifier="Public" Name="UpdateFile" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateFile">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.UpdateFile</CommandText>
@@ -306,7 +306,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateFileExpirationRequired" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateFileExpirationRequired" Modifier="Public" Name="UpdateFileExpirationRequired" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateFileExpirationRequired">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateFileExpirationRequired" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateFileExpirationRequired" Modifier="Public" Name="UpdateFileExpirationRequired" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateFileExpirationRequired">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.UpdateFileExpirationRequired</CommandText>
@@ -318,7 +318,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateFileTemporaryGuid" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateFileTemporaryGuid" Modifier="Public" Name="UpdateFileTemporaryGuid" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateFileTemporaryGuid">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateFileTemporaryGuid" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateFileTemporaryGuid" Modifier="Public" Name="UpdateFileTemporaryGuid" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateFileTemporaryGuid">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.UpdateFileTemporaryGuid</CommandText>
@@ -334,7 +334,7 @@ SELECT DepartmentGuid, OrganizationGuid, Name FROM Department WHERE (DepartmentG
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FileExtensionTableAdapter" GeneratorDataComponentClassName="FileExtensionTableAdapter" Name="FileExtension" UserDataComponentName="FileExtensionTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.FileExtension" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.FileExtension" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[FileExtension] WHERE (([FileExtensionGuid] = @Original_FileExtensionGuid) AND ([FileExtension] = @Original_FileExtension) AND ([MimeType] = @Original_MimeType))</CommandText>
@@ -387,7 +387,7 @@ SELECT FileExtensionGuid, FileExtension, MimeType FROM FileExtension WHERE (File
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrganizationTableAdapter" GeneratorDataComponentClassName="OrganizationTableAdapter" Name="Organization" UserDataComponentName="OrganizationTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetOrganizations" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetOrganizations" GetMethodModifier="Public" GetMethodName="GetOrganizations" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetOrganizations" UserSourceName="GetOrganizations">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetOrganizations" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetOrganizations" GetMethodModifier="Public" GetMethodName="GetOrganizations" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetOrganizations" UserSourceName="GetOrganizations">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetOrganizations</CommandText>
@@ -409,7 +409,7 @@ SELECT FileExtensionGuid, FileExtension, MimeType FROM FileExtension WHERE (File
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StorageTableAdapter" GeneratorDataComponentClassName="StorageTableAdapter" Name="Storage" UserDataComponentName="StorageTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetStorages" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetStorages" GetMethodModifier="Public" GetMethodName="GetStorages" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetStorages" UserSourceName="GetStorages">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetStorages" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetStorages" GetMethodModifier="Public" GetMethodName="GetStorages" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetStorages" UserSourceName="GetStorages">
                 <InsertCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.InsertStorage</CommandText>
@@ -459,7 +459,7 @@ SELECT FileExtensionGuid, FileExtension, MimeType FROM FileExtension WHERE (File
               <Mapping SourceColumn="OrganizationId" DataSetColumn="OrganizationId" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetStorage" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetStorage" GetMethodModifier="Public" GetMethodName="GetStorage" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetStorage" UserSourceName="GetStorage">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.GetStorage" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetStorage" GetMethodModifier="Public" GetMethodName="GetStorage" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetStorage" UserSourceName="GetStorage">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.GetStorage</CommandText>
@@ -470,7 +470,7 @@ SELECT FileExtensionGuid, FileExtension, MimeType FROM FileExtension WHERE (File
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.ValidateStorage" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="ValidateStorage" Modifier="Public" Name="ValidateStorage" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ValidateStorage">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.ValidateStorage" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="ValidateStorage" Modifier="Public" Name="ValidateStorage" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ValidateStorage">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.ValidateStorage</CommandText>
@@ -495,7 +495,7 @@ SELECT FileExtensionGuid, FileExtension, MimeType FROM FileExtension WHERE (File
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TransferLogTableAdapter" GeneratorDataComponentClassName="TransferLogTableAdapter" Name="TransferLog" UserDataComponentName="TransferLogTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.TransferLog" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.TransferLog" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[TransferLog] WHERE (([TransferLogGuid] = @Original_TransferLogGuid) AND ([FileUniqueId] = @Original_FileUniqueId) AND ([DownloadCount] = @Original_DownloadCount) AND ([SizeInBytes] = @Original_SizeInBytes) AND ([IsDownload] = @Original_IsDownload) AND ([MonthAudit] = @Original_MonthAudit))</CommandText>
@@ -560,7 +560,7 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
               <Mapping SourceColumn="MonthAudit" DataSetColumn="MonthAudit" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateTransferLog" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateTransferLog" Modifier="Public" Name="UpdateTransferLog" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateTransferLog">
+              <DbSource ConnectionRef="FileServiceConnectionString (Settings)" DbObjectName="FileService.dbo.UpdateTransferLog" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="UpdateTransferLog" Modifier="Public" Name="UpdateTransferLog" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateTransferLog">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="true">
                     <CommandText>dbo.UpdateTransferLog</CommandText>
@@ -579,15 +579,15 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="MainDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="MainDataSet" msprop:Generator_DataSetName="MainDataSet">
+  <xs:element name="MainDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="MainDataSet" msprop:Generator_UserDSName="MainDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Application" msprop:Generator_UserTableName="Application" msprop:Generator_RowDeletedName="ApplicationRowDeleted" msprop:Generator_RowChangedName="ApplicationRowChanged" msprop:Generator_RowClassName="ApplicationRow" msprop:Generator_RowChangingName="ApplicationRowChanging" msprop:Generator_RowEvArgName="ApplicationRowChangeEvent" msprop:Generator_RowEvHandlerName="ApplicationRowChangeEventHandler" msprop:Generator_TableClassName="ApplicationDataTable" msprop:Generator_TableVarName="tableApplication" msprop:Generator_RowDeletingName="ApplicationRowDeleting" msprop:Generator_TablePropName="Application">
+        <xs:element name="Application" msprop:Generator_UserTableName="Application" msprop:Generator_RowEvArgName="ApplicationRowChangeEvent" msprop:Generator_TableVarName="tableApplication" msprop:Generator_TablePropName="Application" msprop:Generator_RowDeletingName="ApplicationRowDeleting" msprop:Generator_RowChangingName="ApplicationRowChanging" msprop:Generator_RowDeletedName="ApplicationRowDeleted" msprop:Generator_TableClassName="ApplicationDataTable" msprop:Generator_RowChangedName="ApplicationRowChanged" msprop:Generator_RowEvHandlerName="ApplicationRowChangeEventHandler" msprop:Generator_RowClassName="ApplicationRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ApplicationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="ApplicationGuid" msprop:Generator_ColumnPropNameInRow="ApplicationGuid" msprop:Generator_ColumnVarNameInTable="columnApplicationGuid" msprop:Generator_ColumnPropNameInTable="ApplicationGuidColumn" type="xs:string" />
-              <xs:element name="VendorGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="VendorGuid" msprop:Generator_ColumnPropNameInRow="VendorGuid" msprop:Generator_ColumnVarNameInTable="columnVendorGuid" msprop:Generator_ColumnPropNameInTable="VendorGuidColumn" type="xs:string" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="ApplicationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnApplicationGuid" msprop:Generator_ColumnPropNameInRow="ApplicationGuid" msprop:Generator_ColumnPropNameInTable="ApplicationGuidColumn" msprop:Generator_UserColumnName="ApplicationGuid" type="xs:string" />
+              <xs:element name="VendorGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnVendorGuid" msprop:Generator_ColumnPropNameInRow="VendorGuid" msprop:Generator_ColumnPropNameInTable="VendorGuidColumn" msprop:Generator_UserColumnName="VendorGuid" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -597,11 +597,11 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vendor" msprop:Generator_UserTableName="Vendor" msprop:Generator_RowDeletedName="VendorRowDeleted" msprop:Generator_RowChangedName="VendorRowChanged" msprop:Generator_RowClassName="VendorRow" msprop:Generator_RowChangingName="VendorRowChanging" msprop:Generator_RowEvArgName="VendorRowChangeEvent" msprop:Generator_RowEvHandlerName="VendorRowChangeEventHandler" msprop:Generator_TableClassName="VendorDataTable" msprop:Generator_TableVarName="tableVendor" msprop:Generator_RowDeletingName="VendorRowDeleting" msprop:Generator_TablePropName="Vendor">
+        <xs:element name="Vendor" msprop:Generator_UserTableName="Vendor" msprop:Generator_RowEvArgName="VendorRowChangeEvent" msprop:Generator_TableVarName="tableVendor" msprop:Generator_TablePropName="Vendor" msprop:Generator_RowDeletingName="VendorRowDeleting" msprop:Generator_RowChangingName="VendorRowChanging" msprop:Generator_RowDeletedName="VendorRowDeleted" msprop:Generator_TableClassName="VendorDataTable" msprop:Generator_RowChangedName="VendorRowChanged" msprop:Generator_RowEvHandlerName="VendorRowChangeEventHandler" msprop:Generator_RowClassName="VendorRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="VendorGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="VendorGuid" msprop:Generator_ColumnPropNameInRow="VendorGuid" msprop:Generator_ColumnVarNameInTable="columnVendorGuid" msprop:Generator_ColumnPropNameInTable="VendorGuidColumn" type="xs:string" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="VendorGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnVendorGuid" msprop:Generator_ColumnPropNameInRow="VendorGuid" msprop:Generator_ColumnPropNameInTable="VendorGuidColumn" msprop:Generator_UserColumnName="VendorGuid" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -611,12 +611,12 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Department" msprop:Generator_UserTableName="Department" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_RowClassName="DepartmentRow" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_TablePropName="Department">
+        <xs:element name="Department" msprop:Generator_UserTableName="Department" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_TablePropName="Department" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_RowClassName="DepartmentRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="DepartmentGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="DepartmentGuid" msprop:Generator_ColumnPropNameInRow="DepartmentGuid" msprop:Generator_ColumnVarNameInTable="columnDepartmentGuid" msprop:Generator_ColumnPropNameInTable="DepartmentGuidColumn" type="xs:string" />
-              <xs:element name="OrganizationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="OrganizationGuid" msprop:Generator_ColumnPropNameInRow="OrganizationGuid" msprop:Generator_ColumnVarNameInTable="columnOrganizationGuid" msprop:Generator_ColumnPropNameInTable="OrganizationGuidColumn" type="xs:string" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="DepartmentGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnDepartmentGuid" msprop:Generator_ColumnPropNameInRow="DepartmentGuid" msprop:Generator_ColumnPropNameInTable="DepartmentGuidColumn" msprop:Generator_UserColumnName="DepartmentGuid" type="xs:string" />
+              <xs:element name="OrganizationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnOrganizationGuid" msprop:Generator_ColumnPropNameInRow="OrganizationGuid" msprop:Generator_ColumnPropNameInTable="OrganizationGuidColumn" msprop:Generator_UserColumnName="OrganizationGuid" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -626,80 +626,80 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="File" msprop:Generator_UserTableName="File" msprop:Generator_RowDeletedName="FileRowDeleted" msprop:Generator_RowChangedName="FileRowChanged" msprop:Generator_RowClassName="FileRow" msprop:Generator_RowChangingName="FileRowChanging" msprop:Generator_RowEvArgName="FileRowChangeEvent" msprop:Generator_RowEvHandlerName="FileRowChangeEventHandler" msprop:Generator_TableClassName="FileDataTable" msprop:Generator_TableVarName="tableFile" msprop:Generator_RowDeletingName="FileRowDeleting" msprop:Generator_TablePropName="File">
+        <xs:element name="File" msprop:Generator_UserTableName="File" msprop:Generator_RowEvArgName="FileRowChangeEvent" msprop:Generator_TableVarName="tableFile" msprop:Generator_TablePropName="File" msprop:Generator_RowDeletingName="FileRowDeleting" msprop:Generator_RowChangingName="FileRowChanging" msprop:Generator_RowDeletedName="FileRowDeleted" msprop:Generator_TableClassName="FileDataTable" msprop:Generator_RowChangedName="FileRowChanged" msprop:Generator_RowEvHandlerName="FileRowChangeEventHandler" msprop:Generator_RowClassName="FileRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="FileUniqueId" msprop:Generator_UserColumnName="FileUniqueId" msprop:Generator_ColumnPropNameInRow="FileUniqueId" msprop:Generator_ColumnVarNameInTable="columnFileUniqueId" msprop:Generator_ColumnPropNameInTable="FileUniqueIdColumn">
+              <xs:element name="FileUniqueId" msprop:Generator_ColumnVarNameInTable="columnFileUniqueId" msprop:Generator_ColumnPropNameInRow="FileUniqueId" msprop:Generator_ColumnPropNameInTable="FileUniqueIdColumn" msprop:Generator_UserColumnName="FileUniqueId">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ParentFileUniqueId" msprop:Generator_UserColumnName="ParentFileUniqueId" msprop:Generator_ColumnPropNameInRow="ParentFileUniqueId" msprop:Generator_ColumnVarNameInTable="columnParentFileUniqueId" msprop:Generator_ColumnPropNameInTable="ParentFileUniqueIdColumn" minOccurs="0">
+              <xs:element name="ParentFileUniqueId" msprop:Generator_ColumnVarNameInTable="columnParentFileUniqueId" msprop:Generator_ColumnPropNameInRow="ParentFileUniqueId" msprop:Generator_ColumnPropNameInTable="ParentFileUniqueIdColumn" msprop:Generator_UserColumnName="ParentFileUniqueId" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FileExtensionGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="FileExtensionGuid" msprop:Generator_ColumnPropNameInRow="FileExtensionGuid" msprop:Generator_ColumnVarNameInTable="columnFileExtensionGuid" msprop:Generator_ColumnPropNameInTable="FileExtensionGuidColumn" type="xs:string" />
-              <xs:element name="ApplicationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="ApplicationGuid" msprop:Generator_ColumnPropNameInRow="ApplicationGuid" msprop:Generator_ColumnVarNameInTable="columnApplicationGuid" msprop:Generator_ColumnPropNameInTable="ApplicationGuidColumn" type="xs:string" />
-              <xs:element name="StorageGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="StorageGuid" msprop:Generator_ColumnPropNameInRow="StorageGuid" msprop:Generator_ColumnVarNameInTable="columnStorageGuid" msprop:Generator_ColumnPropNameInTable="StorageGuidColumn" type="xs:string" />
-              <xs:element name="DepartmentGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="DepartmentGuid" msprop:Generator_ColumnPropNameInRow="DepartmentGuid" msprop:Generator_ColumnVarNameInTable="columnDepartmentGuid" msprop:Generator_ColumnPropNameInTable="DepartmentGuidColumn" type="xs:string" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="FileExtensionGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnFileExtensionGuid" msprop:Generator_ColumnPropNameInRow="FileExtensionGuid" msprop:Generator_ColumnPropNameInTable="FileExtensionGuidColumn" msprop:Generator_UserColumnName="FileExtensionGuid" type="xs:string" />
+              <xs:element name="ApplicationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnApplicationGuid" msprop:Generator_ColumnPropNameInRow="ApplicationGuid" msprop:Generator_ColumnPropNameInTable="ApplicationGuidColumn" msprop:Generator_UserColumnName="ApplicationGuid" type="xs:string" />
+              <xs:element name="StorageGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnStorageGuid" msprop:Generator_ColumnPropNameInRow="StorageGuid" msprop:Generator_ColumnPropNameInTable="StorageGuidColumn" msprop:Generator_UserColumnName="StorageGuid" type="xs:string" />
+              <xs:element name="DepartmentGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnDepartmentGuid" msprop:Generator_ColumnPropNameInRow="DepartmentGuid" msprop:Generator_ColumnPropNameInTable="DepartmentGuidColumn" msprop:Generator_UserColumnName="DepartmentGuid" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SizeInBytes" msprop:Generator_UserColumnName="SizeInBytes" msprop:Generator_ColumnPropNameInRow="SizeInBytes" msprop:Generator_ColumnVarNameInTable="columnSizeInBytes" msprop:Generator_ColumnPropNameInTable="SizeInBytesColumn" type="xs:int" />
-              <xs:element name="Height" msprop:Generator_UserColumnName="Height" msprop:Generator_ColumnPropNameInRow="Height" msprop:Generator_ColumnVarNameInTable="columnHeight" msprop:Generator_ColumnPropNameInTable="HeightColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="Width" msprop:Generator_UserColumnName="Width" msprop:Generator_ColumnPropNameInRow="Width" msprop:Generator_ColumnVarNameInTable="columnWidth" msprop:Generator_ColumnPropNameInTable="WidthColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="Align" msprop:Generator_UserColumnName="Align" msprop:Generator_ColumnPropNameInRow="Align" msprop:Generator_ColumnVarNameInTable="columnAlign" msprop:Generator_ColumnPropNameInTable="AlignColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="ExpirationRequired" msprop:Generator_UserColumnName="ExpirationRequired" msprop:Generator_ColumnPropNameInRow="ExpirationRequired" msprop:Generator_ColumnVarNameInTable="columnExpirationRequired" msprop:Generator_ColumnPropNameInTable="ExpirationRequiredColumn" type="xs:boolean" />
-              <xs:element name="CreatedTime" msprop:Generator_UserColumnName="CreatedTime" msprop:Generator_ColumnPropNameInRow="CreatedTime" msprop:Generator_ColumnVarNameInTable="columnCreatedTime" msprop:Generator_ColumnPropNameInTable="CreatedTimeColumn" type="xs:dateTime" />
-              <xs:element name="UpdatedTime" msprop:Generator_UserColumnName="UpdatedTime" msprop:Generator_ColumnPropNameInRow="UpdatedTime" msprop:Generator_ColumnVarNameInTable="columnUpdatedTime" msprop:Generator_ColumnPropNameInTable="UpdatedTimeColumn" type="xs:dateTime" />
-              <xs:element name="TemporaryGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="TemporaryGuid" msprop:Generator_ColumnPropNameInRow="TemporaryGuid" msprop:Generator_ColumnVarNameInTable="columnTemporaryGuid" msprop:Generator_ColumnPropNameInTable="TemporaryGuidColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="Deleted" msprop:Generator_UserColumnName="Deleted" msprop:Generator_ColumnPropNameInRow="Deleted" msprop:Generator_ColumnVarNameInTable="columnDeleted" msprop:Generator_ColumnPropNameInTable="DeletedColumn" type="xs:boolean" />
-              <xs:element name="FileExtension" msprop:Generator_UserColumnName="FileExtension" msprop:Generator_ColumnPropNameInRow="FileExtension" msprop:Generator_ColumnVarNameInTable="columnFileExtension" msprop:Generator_ColumnPropNameInTable="FileExtensionColumn">
+              <xs:element name="SizeInBytes" msprop:Generator_ColumnVarNameInTable="columnSizeInBytes" msprop:Generator_ColumnPropNameInRow="SizeInBytes" msprop:Generator_ColumnPropNameInTable="SizeInBytesColumn" msprop:Generator_UserColumnName="SizeInBytes" type="xs:int" />
+              <xs:element name="Height" msprop:Generator_ColumnVarNameInTable="columnHeight" msprop:Generator_ColumnPropNameInRow="Height" msprop:Generator_ColumnPropNameInTable="HeightColumn" msprop:Generator_UserColumnName="Height" type="xs:int" minOccurs="0" />
+              <xs:element name="Width" msprop:Generator_ColumnVarNameInTable="columnWidth" msprop:Generator_ColumnPropNameInRow="Width" msprop:Generator_ColumnPropNameInTable="WidthColumn" msprop:Generator_UserColumnName="Width" type="xs:int" minOccurs="0" />
+              <xs:element name="Align" msprop:Generator_ColumnVarNameInTable="columnAlign" msprop:Generator_ColumnPropNameInRow="Align" msprop:Generator_ColumnPropNameInTable="AlignColumn" msprop:Generator_UserColumnName="Align" type="xs:int" minOccurs="0" />
+              <xs:element name="ExpirationRequired" msprop:Generator_ColumnVarNameInTable="columnExpirationRequired" msprop:Generator_ColumnPropNameInRow="ExpirationRequired" msprop:Generator_ColumnPropNameInTable="ExpirationRequiredColumn" msprop:Generator_UserColumnName="ExpirationRequired" type="xs:boolean" />
+              <xs:element name="CreatedTime" msdata:DateTimeMode="Utc" msprop:Generator_ColumnVarNameInTable="columnCreatedTime" msprop:Generator_ColumnPropNameInRow="CreatedTime" msprop:Generator_ColumnPropNameInTable="CreatedTimeColumn" msprop:Generator_UserColumnName="CreatedTime" type="xs:dateTime" />
+              <xs:element name="UpdatedTime" msdata:DateTimeMode="Utc" msprop:Generator_ColumnVarNameInTable="columnUpdatedTime" msprop:Generator_ColumnPropNameInRow="UpdatedTime" msprop:Generator_ColumnPropNameInTable="UpdatedTimeColumn" msprop:Generator_UserColumnName="UpdatedTime" type="xs:dateTime" />
+              <xs:element name="TemporaryGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnTemporaryGuid" msprop:Generator_ColumnPropNameInRow="TemporaryGuid" msprop:Generator_ColumnPropNameInTable="TemporaryGuidColumn" msprop:Generator_UserColumnName="TemporaryGuid" type="xs:string" minOccurs="0" />
+              <xs:element name="Deleted" msprop:Generator_ColumnVarNameInTable="columnDeleted" msprop:Generator_ColumnPropNameInRow="Deleted" msprop:Generator_ColumnPropNameInTable="DeletedColumn" msprop:Generator_UserColumnName="Deleted" type="xs:boolean" />
+              <xs:element name="FileExtension" msprop:Generator_ColumnVarNameInTable="columnFileExtension" msprop:Generator_ColumnPropNameInRow="FileExtension" msprop:Generator_ColumnPropNameInTable="FileExtensionColumn" msprop:Generator_UserColumnName="FileExtension">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MimeType" msprop:Generator_UserColumnName="MimeType" msprop:Generator_ColumnPropNameInRow="MimeType" msprop:Generator_ColumnVarNameInTable="columnMimeType" msprop:Generator_ColumnPropNameInTable="MimeTypeColumn">
+              <xs:element name="MimeType" msprop:Generator_ColumnVarNameInTable="columnMimeType" msprop:Generator_ColumnPropNameInRow="MimeType" msprop:Generator_ColumnPropNameInTable="MimeTypeColumn" msprop:Generator_UserColumnName="MimeType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="StoragePath" msprop:Generator_UserColumnName="StoragePath" msprop:Generator_ColumnPropNameInRow="StoragePath" msprop:Generator_ColumnVarNameInTable="columnStoragePath" msprop:Generator_ColumnPropNameInTable="StoragePathColumn">
+              <xs:element name="StoragePath" msprop:Generator_ColumnVarNameInTable="columnStoragePath" msprop:Generator_ColumnPropNameInRow="StoragePath" msprop:Generator_ColumnPropNameInTable="StoragePathColumn" msprop:Generator_UserColumnName="StoragePath">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="OrganizationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="OrganizationGuid" msprop:Generator_ColumnPropNameInRow="OrganizationGuid" msprop:Generator_ColumnVarNameInTable="columnOrganizationGuid" msprop:Generator_ColumnPropNameInTable="OrganizationGuidColumn" type="xs:string" />
+              <xs:element name="OrganizationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnOrganizationGuid" msprop:Generator_ColumnPropNameInRow="OrganizationGuid" msprop:Generator_ColumnPropNameInTable="OrganizationGuidColumn" msprop:Generator_UserColumnName="OrganizationGuid" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FileExtension" msprop:Generator_UserTableName="FileExtension" msprop:Generator_RowDeletedName="FileExtensionRowDeleted" msprop:Generator_RowChangedName="FileExtensionRowChanged" msprop:Generator_RowClassName="FileExtensionRow" msprop:Generator_RowChangingName="FileExtensionRowChanging" msprop:Generator_RowEvArgName="FileExtensionRowChangeEvent" msprop:Generator_RowEvHandlerName="FileExtensionRowChangeEventHandler" msprop:Generator_TableClassName="FileExtensionDataTable" msprop:Generator_TableVarName="tableFileExtension" msprop:Generator_RowDeletingName="FileExtensionRowDeleting" msprop:Generator_TablePropName="FileExtension">
+        <xs:element name="FileExtension" msprop:Generator_UserTableName="FileExtension" msprop:Generator_RowEvArgName="FileExtensionRowChangeEvent" msprop:Generator_TableVarName="tableFileExtension" msprop:Generator_TablePropName="FileExtension" msprop:Generator_RowDeletingName="FileExtensionRowDeleting" msprop:Generator_RowChangingName="FileExtensionRowChanging" msprop:Generator_RowDeletedName="FileExtensionRowDeleted" msprop:Generator_TableClassName="FileExtensionDataTable" msprop:Generator_RowChangedName="FileExtensionRowChanged" msprop:Generator_RowEvHandlerName="FileExtensionRowChangeEventHandler" msprop:Generator_RowClassName="FileExtensionRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="FileExtensionGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="FileExtensionGuid" msprop:Generator_ColumnPropNameInRow="FileExtensionGuid" msprop:Generator_ColumnVarNameInTable="columnFileExtensionGuid" msprop:Generator_ColumnPropNameInTable="FileExtensionGuidColumn" type="xs:string" />
-              <xs:element name="FileExtension" msprop:Generator_UserColumnName="FileExtension" msprop:Generator_ColumnPropNameInRow="FileExtension" msprop:Generator_ColumnVarNameInTable="columnFileExtension" msprop:Generator_ColumnPropNameInTable="FileExtensionColumn">
+              <xs:element name="FileExtensionGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnFileExtensionGuid" msprop:Generator_ColumnPropNameInRow="FileExtensionGuid" msprop:Generator_ColumnPropNameInTable="FileExtensionGuidColumn" msprop:Generator_UserColumnName="FileExtensionGuid" type="xs:string" />
+              <xs:element name="FileExtension" msprop:Generator_ColumnVarNameInTable="columnFileExtension" msprop:Generator_ColumnPropNameInRow="FileExtension" msprop:Generator_ColumnPropNameInTable="FileExtensionColumn" msprop:Generator_UserColumnName="FileExtension">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MimeType" msprop:Generator_UserColumnName="MimeType" msprop:Generator_ColumnPropNameInRow="MimeType" msprop:Generator_ColumnVarNameInTable="columnMimeType" msprop:Generator_ColumnPropNameInTable="MimeTypeColumn">
+              <xs:element name="MimeType" msprop:Generator_ColumnVarNameInTable="columnMimeType" msprop:Generator_ColumnPropNameInRow="MimeType" msprop:Generator_ColumnPropNameInTable="MimeTypeColumn" msprop:Generator_UserColumnName="MimeType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -709,58 +709,58 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Organization" msprop:Generator_UserTableName="Organization" msprop:Generator_RowDeletedName="OrganizationRowDeleted" msprop:Generator_RowChangedName="OrganizationRowChanged" msprop:Generator_RowClassName="OrganizationRow" msprop:Generator_RowChangingName="OrganizationRowChanging" msprop:Generator_RowEvArgName="OrganizationRowChangeEvent" msprop:Generator_RowEvHandlerName="OrganizationRowChangeEventHandler" msprop:Generator_TableClassName="OrganizationDataTable" msprop:Generator_TableVarName="tableOrganization" msprop:Generator_RowDeletingName="OrganizationRowDeleting" msprop:Generator_TablePropName="Organization">
+        <xs:element name="Organization" msprop:Generator_UserTableName="Organization" msprop:Generator_RowEvArgName="OrganizationRowChangeEvent" msprop:Generator_TableVarName="tableOrganization" msprop:Generator_TablePropName="Organization" msprop:Generator_RowDeletingName="OrganizationRowDeleting" msprop:Generator_RowChangingName="OrganizationRowChanging" msprop:Generator_RowDeletedName="OrganizationRowDeleted" msprop:Generator_TableClassName="OrganizationDataTable" msprop:Generator_RowChangedName="OrganizationRowChanged" msprop:Generator_RowEvHandlerName="OrganizationRowChangeEventHandler" msprop:Generator_RowClassName="OrganizationRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="OrganizationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="OrganizationGuid" msprop:Generator_ColumnPropNameInRow="OrganizationGuid" msprop:Generator_ColumnVarNameInTable="columnOrganizationGuid" msprop:Generator_ColumnPropNameInTable="OrganizationGuidColumn" type="xs:string" />
-              <xs:element name="ApplicationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="ApplicationGuid" msprop:Generator_ColumnPropNameInRow="ApplicationGuid" msprop:Generator_ColumnVarNameInTable="columnApplicationGuid" msprop:Generator_ColumnPropNameInTable="ApplicationGuidColumn" type="xs:string" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="OrganizationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnOrganizationGuid" msprop:Generator_ColumnPropNameInRow="OrganizationGuid" msprop:Generator_ColumnPropNameInTable="OrganizationGuidColumn" msprop:Generator_UserColumnName="OrganizationGuid" type="xs:string" />
+              <xs:element name="ApplicationGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnApplicationGuid" msprop:Generator_ColumnPropNameInRow="ApplicationGuid" msprop:Generator_ColumnPropNameInTable="ApplicationGuidColumn" msprop:Generator_UserColumnName="ApplicationGuid" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BWAAccountId" msprop:Generator_UserColumnName="BWAAccountId" msprop:Generator_ColumnPropNameInRow="BWAAccountId" msprop:Generator_ColumnVarNameInTable="columnBWAAccountId" msprop:Generator_ColumnPropNameInTable="BWAAccountIdColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="HasPrivateStorage" msprop:Generator_UserColumnName="HasPrivateStorage" msprop:Generator_ColumnVarNameInTable="columnHasPrivateStorage" msprop:Generator_ColumnPropNameInRow="HasPrivateStorage" msprop:Generator_ColumnPropNameInTable="HasPrivateStorageColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="BWAAccountId" msprop:Generator_ColumnVarNameInTable="columnBWAAccountId" msprop:Generator_ColumnPropNameInRow="BWAAccountId" msprop:Generator_ColumnPropNameInTable="BWAAccountIdColumn" msprop:Generator_UserColumnName="BWAAccountId" type="xs:int" minOccurs="0" />
+              <xs:element name="HasPrivateStorage" msprop:Generator_ColumnVarNameInTable="columnHasPrivateStorage" msprop:Generator_ColumnPropNameInRow="HasPrivateStorage" msprop:Generator_ColumnPropNameInTable="HasPrivateStorageColumn" msprop:Generator_UserColumnName="HasPrivateStorage" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Storage" msprop:Generator_UserTableName="Storage" msprop:Generator_RowDeletedName="StorageRowDeleted" msprop:Generator_RowChangedName="StorageRowChanged" msprop:Generator_RowClassName="StorageRow" msprop:Generator_RowChangingName="StorageRowChanging" msprop:Generator_RowEvArgName="StorageRowChangeEvent" msprop:Generator_RowEvHandlerName="StorageRowChangeEventHandler" msprop:Generator_TableClassName="StorageDataTable" msprop:Generator_TableVarName="tableStorage" msprop:Generator_RowDeletingName="StorageRowDeleting" msprop:Generator_TablePropName="Storage">
+        <xs:element name="Storage" msprop:Generator_UserTableName="Storage" msprop:Generator_RowEvArgName="StorageRowChangeEvent" msprop:Generator_TableVarName="tableStorage" msprop:Generator_TablePropName="Storage" msprop:Generator_RowDeletingName="StorageRowDeleting" msprop:Generator_RowChangingName="StorageRowChanging" msprop:Generator_RowDeletedName="StorageRowDeleted" msprop:Generator_TableClassName="StorageDataTable" msprop:Generator_RowChangedName="StorageRowChanged" msprop:Generator_RowEvHandlerName="StorageRowChangeEventHandler" msprop:Generator_RowClassName="StorageRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="StorageGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="StorageGuid" msprop:Generator_ColumnPropNameInRow="StorageGuid" msprop:Generator_ColumnVarNameInTable="columnStorageGuid" msprop:Generator_ColumnPropNameInTable="StorageGuidColumn" type="xs:string" />
-              <xs:element name="Path" msprop:Generator_UserColumnName="Path" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInTable="PathColumn" minOccurs="0">
+              <xs:element name="StorageGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnStorageGuid" msprop:Generator_ColumnPropNameInRow="StorageGuid" msprop:Generator_ColumnPropNameInTable="StorageGuidColumn" msprop:Generator_UserColumnName="StorageGuid" type="xs:string" />
+              <xs:element name="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnPropNameInTable="PathColumn" msprop:Generator_UserColumnName="Path" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MaxSizeInMB" msprop:Generator_UserColumnName="MaxSizeInMB" msprop:Generator_ColumnPropNameInRow="MaxSizeInMB" msprop:Generator_ColumnVarNameInTable="columnMaxSizeInMB" msprop:Generator_ColumnPropNameInTable="MaxSizeInMBColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CurrentSizeInBytes" msprop:Generator_UserColumnName="CurrentSizeInBytes" msprop:Generator_ColumnPropNameInRow="CurrentSizeInBytes" msprop:Generator_ColumnVarNameInTable="columnCurrentSizeInBytes" msprop:Generator_ColumnPropNameInTable="CurrentSizeInBytesColumn" type="xs:long" default="0" />
-              <xs:element name="MaxFileCount" msprop:Generator_UserColumnName="MaxFileCount" msprop:Generator_ColumnPropNameInRow="MaxFileCount" msprop:Generator_ColumnVarNameInTable="columnMaxFileCount" msprop:Generator_ColumnPropNameInTable="MaxFileCountColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="CurrentFileCount" msprop:Generator_UserColumnName="CurrentFileCount" msprop:Generator_ColumnPropNameInRow="CurrentFileCount" msprop:Generator_ColumnVarNameInTable="columnCurrentFileCount" msprop:Generator_ColumnPropNameInTable="CurrentFileCountColumn" type="xs:int" default="0" />
-              <xs:element name="OrganizationId" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="OrganizationId" msprop:Generator_ColumnVarNameInTable="columnOrganizationId" msprop:Generator_ColumnPropNameInRow="OrganizationId" msprop:Generator_ColumnPropNameInTable="OrganizationIdColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="Active" msprop:Generator_UserColumnName="Active" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_ColumnVarNameInTable="columnActive" msprop:Generator_ColumnPropNameInTable="ActiveColumn" type="xs:boolean" />
+              <xs:element name="MaxSizeInMB" msprop:Generator_ColumnVarNameInTable="columnMaxSizeInMB" msprop:Generator_ColumnPropNameInRow="MaxSizeInMB" msprop:Generator_ColumnPropNameInTable="MaxSizeInMBColumn" msprop:Generator_UserColumnName="MaxSizeInMB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CurrentSizeInBytes" msprop:Generator_ColumnVarNameInTable="columnCurrentSizeInBytes" msprop:Generator_ColumnPropNameInRow="CurrentSizeInBytes" msprop:Generator_ColumnPropNameInTable="CurrentSizeInBytesColumn" msprop:Generator_UserColumnName="CurrentSizeInBytes" type="xs:long" default="0" />
+              <xs:element name="MaxFileCount" msprop:Generator_ColumnVarNameInTable="columnMaxFileCount" msprop:Generator_ColumnPropNameInRow="MaxFileCount" msprop:Generator_ColumnPropNameInTable="MaxFileCountColumn" msprop:Generator_UserColumnName="MaxFileCount" type="xs:int" minOccurs="0" />
+              <xs:element name="CurrentFileCount" msprop:Generator_ColumnVarNameInTable="columnCurrentFileCount" msprop:Generator_ColumnPropNameInRow="CurrentFileCount" msprop:Generator_ColumnPropNameInTable="CurrentFileCountColumn" msprop:Generator_UserColumnName="CurrentFileCount" type="xs:int" default="0" />
+              <xs:element name="OrganizationId" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnOrganizationId" msprop:Generator_ColumnPropNameInRow="OrganizationId" msprop:Generator_ColumnPropNameInTable="OrganizationIdColumn" msprop:Generator_UserColumnName="OrganizationId" type="xs:string" minOccurs="0" />
+              <xs:element name="Active" msprop:Generator_ColumnVarNameInTable="columnActive" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_UserColumnName="Active" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TransferLog" msprop:Generator_UserTableName="TransferLog" msprop:Generator_RowDeletedName="TransferLogRowDeleted" msprop:Generator_RowChangedName="TransferLogRowChanged" msprop:Generator_RowClassName="TransferLogRow" msprop:Generator_RowChangingName="TransferLogRowChanging" msprop:Generator_RowEvArgName="TransferLogRowChangeEvent" msprop:Generator_RowEvHandlerName="TransferLogRowChangeEventHandler" msprop:Generator_TableClassName="TransferLogDataTable" msprop:Generator_TableVarName="tableTransferLog" msprop:Generator_RowDeletingName="TransferLogRowDeleting" msprop:Generator_TablePropName="TransferLog">
+        <xs:element name="TransferLog" msprop:Generator_UserTableName="TransferLog" msprop:Generator_RowEvArgName="TransferLogRowChangeEvent" msprop:Generator_TableVarName="tableTransferLog" msprop:Generator_TablePropName="TransferLog" msprop:Generator_RowDeletingName="TransferLogRowDeleting" msprop:Generator_RowChangingName="TransferLogRowChanging" msprop:Generator_RowDeletedName="TransferLogRowDeleted" msprop:Generator_TableClassName="TransferLogDataTable" msprop:Generator_RowChangedName="TransferLogRowChanged" msprop:Generator_RowEvHandlerName="TransferLogRowChangeEventHandler" msprop:Generator_RowClassName="TransferLogRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="TransferLogGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="TransferLogGuid" msprop:Generator_ColumnPropNameInRow="TransferLogGuid" msprop:Generator_ColumnVarNameInTable="columnTransferLogGuid" msprop:Generator_ColumnPropNameInTable="TransferLogGuidColumn" type="xs:string" />
-              <xs:element name="FileUniqueId" msprop:Generator_UserColumnName="FileUniqueId" msprop:Generator_ColumnPropNameInRow="FileUniqueId" msprop:Generator_ColumnVarNameInTable="columnFileUniqueId" msprop:Generator_ColumnPropNameInTable="FileUniqueIdColumn">
+              <xs:element name="TransferLogGuid" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnTransferLogGuid" msprop:Generator_ColumnPropNameInRow="TransferLogGuid" msprop:Generator_ColumnPropNameInTable="TransferLogGuidColumn" msprop:Generator_UserColumnName="TransferLogGuid" type="xs:string" />
+              <xs:element name="FileUniqueId" msprop:Generator_ColumnVarNameInTable="columnFileUniqueId" msprop:Generator_ColumnPropNameInRow="FileUniqueId" msprop:Generator_ColumnPropNameInTable="FileUniqueIdColumn" msprop:Generator_UserColumnName="FileUniqueId">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DownloadCount" msprop:Generator_UserColumnName="DownloadCount" msprop:Generator_ColumnPropNameInRow="DownloadCount" msprop:Generator_ColumnVarNameInTable="columnDownloadCount" msprop:Generator_ColumnPropNameInTable="DownloadCountColumn" type="xs:long" />
-              <xs:element name="SizeInBytes" msprop:Generator_UserColumnName="SizeInBytes" msprop:Generator_ColumnPropNameInRow="SizeInBytes" msprop:Generator_ColumnVarNameInTable="columnSizeInBytes" msprop:Generator_ColumnPropNameInTable="SizeInBytesColumn" type="xs:int" />
-              <xs:element name="IsDownload" msprop:Generator_UserColumnName="IsDownload" msprop:Generator_ColumnPropNameInRow="IsDownload" msprop:Generator_ColumnVarNameInTable="columnIsDownload" msprop:Generator_ColumnPropNameInTable="IsDownloadColumn" type="xs:boolean" />
-              <xs:element name="MonthAudit" msprop:Generator_UserColumnName="MonthAudit" msprop:Generator_ColumnPropNameInRow="MonthAudit" msprop:Generator_ColumnVarNameInTable="columnMonthAudit" msprop:Generator_ColumnPropNameInTable="MonthAuditColumn" type="xs:dateTime" />
+              <xs:element name="DownloadCount" msprop:Generator_ColumnVarNameInTable="columnDownloadCount" msprop:Generator_ColumnPropNameInRow="DownloadCount" msprop:Generator_ColumnPropNameInTable="DownloadCountColumn" msprop:Generator_UserColumnName="DownloadCount" type="xs:long" />
+              <xs:element name="SizeInBytes" msprop:Generator_ColumnVarNameInTable="columnSizeInBytes" msprop:Generator_ColumnPropNameInRow="SizeInBytes" msprop:Generator_ColumnPropNameInTable="SizeInBytesColumn" msprop:Generator_UserColumnName="SizeInBytes" type="xs:int" />
+              <xs:element name="IsDownload" msprop:Generator_ColumnVarNameInTable="columnIsDownload" msprop:Generator_ColumnPropNameInRow="IsDownload" msprop:Generator_ColumnPropNameInTable="IsDownloadColumn" msprop:Generator_UserColumnName="IsDownload" type="xs:boolean" />
+              <xs:element name="MonthAudit" msprop:Generator_ColumnVarNameInTable="columnMonthAudit" msprop:Generator_ColumnPropNameInRow="MonthAudit" msprop:Generator_ColumnPropNameInTable="MonthAuditColumn" msprop:Generator_UserColumnName="MonthAudit" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -801,15 +801,15 @@ SELECT TransferLogGuid, FileUniqueId, DownloadCount, SizeInBytes, IsDownload, Mo
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Application_Vendor" msdata:parent="Vendor" msdata:child="Application" msdata:parentkey="VendorGuid" msdata:childkey="VendorGuid" msprop:Generator_UserRelationName="FK_Application_Vendor" msprop:Generator_RelationVarName="relationFK_Application_Vendor" msprop:Generator_UserChildTable="Application" msprop:Generator_UserParentTable="Vendor" msprop:Generator_ParentPropName="VendorRow" msprop:Generator_ChildPropName="GetApplicationRows" />
-      <msdata:Relationship name="FK_Department_Organization" msdata:parent="Organization" msdata:child="Department" msdata:parentkey="OrganizationGuid" msdata:childkey="OrganizationGuid" msprop:Generator_UserRelationName="FK_Department_Organization" msprop:Generator_RelationVarName="relationFK_Department_Organization" msprop:Generator_UserChildTable="Department" msprop:Generator_UserParentTable="Organization" msprop:Generator_ParentPropName="OrganizationRow" msprop:Generator_ChildPropName="GetDepartmentRows" />
-      <msdata:Relationship name="FK_File_Application" msdata:parent="Application" msdata:child="File" msdata:parentkey="ApplicationGuid" msdata:childkey="ApplicationGuid" msprop:Generator_UserRelationName="FK_File_Application" msprop:Generator_RelationVarName="relationFK_File_Application" msprop:Generator_UserChildTable="File" msprop:Generator_UserParentTable="Application" msprop:Generator_ParentPropName="ApplicationRow" msprop:Generator_ChildPropName="GetFileRows" />
-      <msdata:Relationship name="FK_File_Department" msdata:parent="Department" msdata:child="File" msdata:parentkey="DepartmentGuid" msdata:childkey="DepartmentGuid" msprop:Generator_UserRelationName="FK_File_Department" msprop:Generator_RelationVarName="relationFK_File_Department" msprop:Generator_UserChildTable="File" msprop:Generator_UserParentTable="Department" msprop:Generator_ParentPropName="DepartmentRow" msprop:Generator_ChildPropName="GetFileRows" />
-      <msdata:Relationship name="FK_File_File" msdata:parent="File" msdata:child="File" msdata:parentkey="FileUniqueId" msdata:childkey="ParentFileUniqueId" msprop:Generator_UserRelationName="FK_File_File" msprop:Generator_RelationVarName="relationFK_File_File" msprop:Generator_UserChildTable="File" msprop:Generator_UserParentTable="File" msprop:Generator_ParentPropName="FileRowParent" msprop:Generator_ChildPropName="GetFileRows" />
-      <msdata:Relationship name="FK_File_FileExtension" msdata:parent="FileExtension" msdata:child="File" msdata:parentkey="FileExtensionGuid" msdata:childkey="FileExtensionGuid" msprop:Generator_UserRelationName="FK_File_FileExtension" msprop:Generator_RelationVarName="relationFK_File_FileExtension" msprop:Generator_UserChildTable="File" msprop:Generator_UserParentTable="FileExtension" msprop:Generator_ParentPropName="FileExtensionRow" msprop:Generator_ChildPropName="GetFileRows" />
-      <msdata:Relationship name="FK_File_Storage" msdata:parent="Storage" msdata:child="File" msdata:parentkey="StorageGuid" msdata:childkey="StorageGuid" msprop:Generator_UserRelationName="FK_File_Storage" msprop:Generator_RelationVarName="relationFK_File_Storage" msprop:Generator_UserChildTable="File" msprop:Generator_UserParentTable="Storage" msprop:Generator_ParentPropName="StorageRow" msprop:Generator_ChildPropName="GetFileRows" />
-      <msdata:Relationship name="FK_Organization_Application" msdata:parent="Application" msdata:child="Organization" msdata:parentkey="ApplicationGuid" msdata:childkey="ApplicationGuid" msprop:Generator_UserRelationName="FK_Organization_Application" msprop:Generator_RelationVarName="relationFK_Organization_Application" msprop:Generator_UserChildTable="Organization" msprop:Generator_UserParentTable="Application" msprop:Generator_ParentPropName="ApplicationRow" msprop:Generator_ChildPropName="GetOrganizationRows" />
-      <msdata:Relationship name="FK_TransferLog_File" msdata:parent="File" msdata:child="TransferLog" msdata:parentkey="FileUniqueId" msdata:childkey="FileUniqueId" msprop:Generator_UserRelationName="FK_TransferLog_File" msprop:Generator_RelationVarName="relationFK_TransferLog_File" msprop:Generator_UserChildTable="TransferLog" msprop:Generator_UserParentTable="File" msprop:Generator_ParentPropName="FileRow" msprop:Generator_ChildPropName="GetTransferLogRows" />
+      <msdata:Relationship name="FK_Application_Vendor" msdata:parent="Vendor" msdata:child="Application" msdata:parentkey="VendorGuid" msdata:childkey="VendorGuid" msprop:Generator_UserChildTable="Application" msprop:Generator_ChildPropName="GetApplicationRows" msprop:Generator_UserParentTable="Vendor" msprop:Generator_UserRelationName="FK_Application_Vendor" msprop:Generator_RelationVarName="relationFK_Application_Vendor" msprop:Generator_ParentPropName="VendorRow" />
+      <msdata:Relationship name="FK_Department_Organization" msdata:parent="Organization" msdata:child="Department" msdata:parentkey="OrganizationGuid" msdata:childkey="OrganizationGuid" msprop:Generator_UserChildTable="Department" msprop:Generator_ChildPropName="GetDepartmentRows" msprop:Generator_UserParentTable="Organization" msprop:Generator_UserRelationName="FK_Department_Organization" msprop:Generator_RelationVarName="relationFK_Department_Organization" msprop:Generator_ParentPropName="OrganizationRow" />
+      <msdata:Relationship name="FK_File_Application" msdata:parent="Application" msdata:child="File" msdata:parentkey="ApplicationGuid" msdata:childkey="ApplicationGuid" msprop:Generator_UserChildTable="File" msprop:Generator_ChildPropName="GetFileRows" msprop:Generator_UserParentTable="Application" msprop:Generator_UserRelationName="FK_File_Application" msprop:Generator_RelationVarName="relationFK_File_Application" msprop:Generator_ParentPropName="ApplicationRow" />
+      <msdata:Relationship name="FK_File_Department" msdata:parent="Department" msdata:child="File" msdata:parentkey="DepartmentGuid" msdata:childkey="DepartmentGuid" msprop:Generator_UserChildTable="File" msprop:Generator_ChildPropName="GetFileRows" msprop:Generator_UserParentTable="Department" msprop:Generator_UserRelationName="FK_File_Department" msprop:Generator_RelationVarName="relationFK_File_Department" msprop:Generator_ParentPropName="DepartmentRow" />
+      <msdata:Relationship name="FK_File_File" msdata:parent="File" msdata:child="File" msdata:parentkey="FileUniqueId" msdata:childkey="ParentFileUniqueId" msprop:Generator_UserChildTable="File" msprop:Generator_ChildPropName="GetFileRows" msprop:Generator_UserParentTable="File" msprop:Generator_UserRelationName="FK_File_File" msprop:Generator_RelationVarName="relationFK_File_File" msprop:Generator_ParentPropName="FileRowParent" />
+      <msdata:Relationship name="FK_File_FileExtension" msdata:parent="FileExtension" msdata:child="File" msdata:parentkey="FileExtensionGuid" msdata:childkey="FileExtensionGuid" msprop:Generator_UserChildTable="File" msprop:Generator_ChildPropName="GetFileRows" msprop:Generator_UserParentTable="FileExtension" msprop:Generator_UserRelationName="FK_File_FileExtension" msprop:Generator_RelationVarName="relationFK_File_FileExtension" msprop:Generator_ParentPropName="FileExtensionRow" />
+      <msdata:Relationship name="FK_File_Storage" msdata:parent="Storage" msdata:child="File" msdata:parentkey="StorageGuid" msdata:childkey="StorageGuid" msprop:Generator_UserChildTable="File" msprop:Generator_ChildPropName="GetFileRows" msprop:Generator_UserParentTable="Storage" msprop:Generator_UserRelationName="FK_File_Storage" msprop:Generator_RelationVarName="relationFK_File_Storage" msprop:Generator_ParentPropName="StorageRow" />
+      <msdata:Relationship name="FK_Organization_Application" msdata:parent="Application" msdata:child="Organization" msdata:parentkey="ApplicationGuid" msdata:childkey="ApplicationGuid" msprop:Generator_UserChildTable="Organization" msprop:Generator_ChildPropName="GetOrganizationRows" msprop:Generator_UserParentTable="Application" msprop:Generator_UserRelationName="FK_Organization_Application" msprop:Generator_RelationVarName="relationFK_Organization_Application" msprop:Generator_ParentPropName="ApplicationRow" />
+      <msdata:Relationship name="FK_TransferLog_File" msdata:parent="File" msdata:child="TransferLog" msdata:parentkey="FileUniqueId" msdata:childkey="FileUniqueId" msprop:Generator_UserChildTable="TransferLog" msprop:Generator_ChildPropName="GetTransferLogRows" msprop:Generator_UserParentTable="File" msprop:Generator_UserRelationName="FK_TransferLog_File" msprop:Generator_RelationVarName="relationFK_TransferLog_File" msprop:Generator_ParentPropName="FileRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

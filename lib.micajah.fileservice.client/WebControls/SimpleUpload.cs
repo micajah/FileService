@@ -1013,6 +1013,7 @@ namespace Micajah.FileService.WebControls
                     row.Deleted = (bool)objs[3];
                     row.IsTemporary = (bool)objs[4];
                 }
+                row.UpdatedTime = DateTime.UtcNow;
                 m_FilesMetaData.AddFileRow(row);
                 if (!row.IsTemporary) row.AcceptChanges();
             }
@@ -1111,6 +1112,7 @@ namespace Micajah.FileService.WebControls
                             row.UpdatedBy = this.UpdatedBy;
                             row.Deleted = false;
                             row.IsTemporary = true;
+                            row.UpdatedTime = DateTime.UtcNow;
                             this.FilesMetaData.AddFileRow(row);
 
                             m_UploadedFileFullNames.Add(file.FileName);

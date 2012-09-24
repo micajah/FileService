@@ -322,7 +322,7 @@ CREATE PROCEDURE [dbo].[GetTemporaryFiles]
 AS
 BEGIN
 	DECLARE @Date datetime;
-	SET @Date = DATEADD(day, -1, GETDATE());
+	SET @Date = DATEADD(day, -1, GETUTCDATE());
 
 	SELECT FileUniqueId, ParentFileUniqueId, FileExtensionGuid, ApplicationGuid, StorageGuid, DepartmentGuid, [Name], SizeInBytes, Height, Width, Align, ExpirationRequired
 		, CreatedTime, UpdatedTime, TemporaryGuid, Deleted, FileExtension, MimeType, StoragePath, OrganizationGuid
@@ -667,7 +667,7 @@ BEGIN
 
 	DECLARE @FileExtensionGuid uniqueidentifier, @CurrentDate datetime, @PreviousStorageGuid uniqueidentifier;
 
-	SET @CurrentDate = GETDATE();
+	SET @CurrentDate = GETUTCDATE();
 	SET @FileExtension = LOWER(@FileExtension);
 	
 	SELECT @FileExtensionGuid = FileExtensionGuid 
@@ -956,7 +956,7 @@ BEGIN
 
 	DECLARE @CurrentDate datetime, @LogDate datetime, @TransferLogGuid uniqueidentifier;
 
-	SET @CurrentDate = GETDATE();
+	SET @CurrentDate = GETUTCDATE();
 	SET @LogDate = @CurrentDate;
 
 	SET @LogDate = DATEADD(dd, -DATEPART(dd, @CurrentDate) + 1, @LogDate);

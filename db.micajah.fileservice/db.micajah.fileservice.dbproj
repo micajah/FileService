@@ -65,6 +65,7 @@
     <Folder Include="Change Scripts" />
     <Folder Include="Create Scripts" />
     <Folder Include="Properties" />
+    <Folder Include="Change Scripts\Convert dates to UTC" />
   </ItemGroup>
   <ItemGroup>
     <NotInBuild Include="Change Scripts\20090630.sql" />
@@ -79,6 +80,15 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Change Scripts\RestoreFromMetadata2.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Change Scripts\Convert dates to UTC\Server.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Change Scripts\Convert dates to UTC\GetUTCDateTime.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Change Scripts\Convert dates to UTC\ReadMe.txt">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
   </ItemGroup>

@@ -78,6 +78,7 @@ namespace Micajah.FileService.Client.Dal.MetaDataSetTableAdapters
                 {
                     MetaDataSet.FileRow row = table[0];
 
+                    row.UpdatedTime = DateTime.UtcNow;
                     if (updatedBy == null)
                         row.SetUpdatedByNull();
                     else
@@ -87,13 +88,6 @@ namespace Micajah.FileService.Client.Dal.MetaDataSetTableAdapters
                     this.Update(row);
                 }
             }
-        }
-
-        public void Insert(string fileUniqueId, string organizationId, string departmentId, string localObjectType, string localObjectId
-            , string name, int sizeInBytes, string updatedBy)
-        {
-            this.Insert(fileUniqueId, Support.CreateGuid(organizationId), Support.CreateGuid(departmentId), localObjectType, localObjectId
-                , name, sizeInBytes, updatedBy, false);
         }
 
         #endregion

@@ -853,7 +853,7 @@ namespace Micajah.FileService.WebControls
                             int align = 0;
 
                             if (Access.GetFileInfo(currentFileUniqueId, ref fileNameWithExtension, ref sizeInBytes, ref width, ref height, ref align, ref mimeType))
-                                adapter.Insert(currentFileUniqueId, this.OrganizationId, this.DepartmentId, this.LocalObjectType, this.LocalObjectId, fileNameWithExtension, (int)sizeInBytes, this.UpdatedBy, false);
+                                adapter.Insert(currentFileUniqueId, this.OrganizationId, this.DepartmentId, this.LocalObjectType, this.LocalObjectId, fileNameWithExtension, (int)sizeInBytes, DateTime.UtcNow, this.UpdatedBy, false);
                         }
                     }
 

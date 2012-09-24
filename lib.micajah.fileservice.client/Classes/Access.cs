@@ -161,7 +161,7 @@ namespace Micajah.FileService.Client
                     if (table.Count > 0)
                     {
                         MetaDataSet.FileRow row = table[0];
-                        adapter.Insert(result, destinationOrganizationId, destinationDepartmentId, row.LocalObjectType, row.LocalObjectId, row.Name, row.SizeInBytes, updatedBy, row.Deleted);
+                        adapter.Insert(result, destinationOrganizationId, destinationDepartmentId, row.LocalObjectType, row.LocalObjectId, row.Name, row.SizeInBytes, DateTime.UtcNow, updatedBy, row.Deleted);
                     }
                 }
             }
@@ -435,7 +435,7 @@ namespace Micajah.FileService.Client
                 try
                 {
                     adapter = new FileTableAdapter(connectionString);
-                    adapter.Insert(result, organizationId, departmentId, localObjectType, localObjectId, fileNameWithExtension, fileContent.Length, updatedBy);
+                    adapter.Insert(result, Support.CreateGuid(organizationId), Support.CreateGuid(departmentId), localObjectType, localObjectId, fileNameWithExtension, fileContent.Length, DateTime.UtcNow, updatedBy, false);
                 }
                 catch (DBConcurrencyException ex)
                 {

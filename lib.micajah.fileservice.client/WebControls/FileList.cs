@@ -167,7 +167,7 @@ namespace Micajah.FileService.WebControls
                     MetaDataSet.FileRow file = drv.Row as MetaDataSet.FileRow;
                     if (file != null)
                     {
-                        string value = string.Format(m_FileList.Culture, m_FileList.DateTimeToolTipFormatString + ", {1:N0} KB|{2}", file.UpdatedTime.AddHours(m_FileList.DateTimeHoursOffset), file.SizeInKB, file.Name);
+                        string value = string.Format(m_FileList.Culture, m_FileList.DateTimeToolTipFormatString + ", {1:N0} KB|{2}", TimeZoneInfo.ConvertTimeFromUtc(file.UpdatedTime, m_FileList.TimeZone), file.SizeInKB, file.Name);
                         m_FileList.ToolTipManager.TargetControls.Add(panel.ClientID, value, true);
                     }
                 }
@@ -230,6 +230,7 @@ namespace Micajah.FileService.WebControls
         private LiteralControl Separator;
         private SimpleUpload m_FilesUpload;
         private DateTime m_UpdatedDate = DateTime.MinValue;
+        private TimeZoneInfo m_TimeZone;
 
         #endregion
 
@@ -390,19 +391,43 @@ namespace Micajah.FileService.WebControls
         }
 
         /// <summary>
-        /// Gets or set the number of hours that will be added to the date and time values.
+        /// Gets or set time zone identifier.
         /// </summary>
         [Category("Appearance")]
-        [Description("The number of hours that will be added to the date and time values.")]
-        [DefaultValue(0.0)]
-        public double DateTimeHoursOffset
+        [Description("The time zone identifier.")]
+        [DefaultValue("Eastern Standard Time")]
+        public string TimeZoneId
         {
             get
             {
-                object obj = ViewState["DateTimeHoursOffset"];
-                return ((obj == null) ? 0 : (double)obj);
+                string str = (string)ViewState["TimeZoneId"];
+                return (string.IsNullOrEmpty(str) ? "Eastern Standard Time" : str);
             }
-            set { ViewState["DateTimeHoursOffset"] = value; }
+            set { ViewState["TimeZoneId"] = value; }
+        }
+
+        /// <summary>
+        /// Gets or set the time zone.
+        /// </summary>
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [DefaultValue(typeof(TimeZoneInfo), "Eastern Standard Time")]
+        public TimeZoneInfo TimeZone
+        {
+            get
+            {
+                if (m_TimeZone == null)
+                    m_TimeZone = TimeZoneInfo.FindSystemTimeZoneById(this.TimeZoneId);
+                return m_TimeZone;
+            }
+            set
+            {
+                m_TimeZone = value;
+                if (value == null)
+                    this.TimeZoneId = null;
+                else
+                    this.TimeZoneId = value.Id;
+            }
         }
 
         /// <summary>
@@ -834,7 +859,7 @@ namespace Micajah.FileService.WebControls
             updatedTimeField.HeaderStyle.Wrap = false;
             updatedTimeField.HeaderText = Resources.FileList_UpdatedWhenText;
             updatedTimeField.ItemStyle.HorizontalAlign = HorizontalAlign.Center;
-            updatedTimeField.ItemStyle.Wrap = false;            
+            updatedTimeField.ItemStyle.Wrap = false;
 
             if (this.ShowIcons)
             {
@@ -1138,8 +1163,10 @@ namespace Micajah.FileService.WebControls
                         e.Row.Attributes["onmouseout"] = "this.className = this.className.replace(' flHover', '');";
                     }
 
-                    DateTime updatedTime = ((DateTime)DataBinder.Eval(e.Row.DataItem, MetaDataSet.FileDataTable.UpdatedTimeColumnName)).AddHours(this.DateTimeHoursOffset);
-                    TableCell cell = e.Row.Cells[((this.RenderingMode == FileListRenderingMode.GridView) ? (this.ShowIcons ? 4 : 3) + (!this.EnableDeleting ? -1 : 0 ) : (this.ShowIcons ? 3 : 2))];
+                    DateTime updatedTime = (DateTime)DataBinder.Eval(e.Row.DataItem, MetaDataSet.FileDataTable.UpdatedTimeColumnName);
+                    updatedTime = TimeZoneInfo.ConvertTimeFromUtc(updatedTime, this.TimeZone);
+
+                    TableCell cell = e.Row.Cells[((this.RenderingMode == FileListRenderingMode.GridView) ? (this.ShowIcons ? 4 : 3) + (!this.EnableDeleting ? -1 : 0) : (this.ShowIcons ? 3 : 2))];
                     cell.Text = string.Format(this.Culture, this.DateTimeFormatString, updatedTime);
 
                     TableCell deleteCell = e.Row.Cells[count - (this.RenderingMode == FileListRenderingMode.GridView ? 2 : 1)];
@@ -1156,7 +1183,7 @@ namespace Micajah.FileService.WebControls
                         }
                         m_UpdatedDate = updatedDate;
                     }
-                    
+
                     cell.ToolTip = string.Format(this.Culture, this.DateTimeToolTipFormatString, updatedTime);
 
                     if (this.EnableDeleting && this.EnableDeletingConfirmation)
