@@ -79,8 +79,16 @@
     <NotInBuild Include="Change Scripts\Convert dates to UTC\ReadMe.txt">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Create Scripts\v5.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
   </ItemGroup>
   <ItemGroup>
     <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Change Scripts\v5.sql">
+      <SubType>Code</SubType>
+    </NotInBuild>
   </ItemGroup>
 </Project>

@@ -1096,12 +1096,12 @@ namespace Micajah.FileService.Client.Dal.MetaDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM mfs.[File]\r\nWHERE        (FileUniqueId = @FileUniqueId)";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM dbo.Mfs_File\r\nWHERE        (FileUniqueId = @FileUniqueId)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileUniqueId", global::System.Data.SqlDbType.NVarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO mfs.[File]
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO dbo.Mfs_File
                          (FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted)
 VALUES        (@FileUniqueId,@OrganizationId,@DepartmentId,@LocalObjectType,@LocalObjectId,@Name,@SizeInBytes,@UpdatedTime,@UpdatedBy,@Deleted)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
@@ -1117,7 +1117,7 @@ VALUES        (@FileUniqueId,@OrganizationId,@DepartmentId,@LocalObjectType,@Loc
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deleted", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE       mfs.[File]
+            this._adapter.UpdateCommand.CommandText = @"UPDATE       dbo.Mfs_File
 SET                OrganizationId = @OrganizationId, DepartmentId = @DepartmentId, LocalObjectType = @LocalObjectType, LocalObjectId = @LocalObjectId, Name = @Name, 
                          SizeInBytes = @SizeInBytes, UpdatedTime = @UpdatedTime, UpdatedBy = @UpdatedBy, Deleted = @Deleted
 WHERE        (FileUniqueId = @FileUniqueId)";
@@ -1148,21 +1148,21 @@ WHERE        (FileUniqueId = @FileUniqueId)";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalO" +
-                "bjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted\r\nFROM            mfs" +
-                ".[File]\r\nWHERE        (FileUniqueId = @FileUniqueId)";
+                "bjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted\r\nFROM            dbo" +
+                ".Mfs_File\r\nWHERE        (FileUniqueId = @FileUniqueId)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileUniqueId", global::System.Data.SqlDbType.NVarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalO" +
-                "bjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted\r\nFROM            mfs" +
-                ".[File]\r\nWHERE        (Deleted = 1)";
+                "bjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted\r\nFROM            dbo" +
+                ".Mfs_File\r\nWHERE        (Deleted = 1)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT        FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted, CONVERT(datetime, 
                          CONVERT(varchar(10), UpdatedTime, 101), 101) AS UpdatedDate
-FROM            mfs.[File]
+FROM            dbo.Mfs_File
 WHERE        (OrganizationId = @OrganizationId) AND (DepartmentId = @DepartmentId) AND (@LocalObjectType IS NULL OR
                          LocalObjectType = @LocalObjectType) AND (@LocalObjectId IS NULL OR
                          LocalObjectId = @LocalObjectId) AND (@Deleted IS NULL OR
