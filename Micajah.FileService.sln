@@ -1,15 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "db.micajah.fileservice", "db.micajah.fileservice\db.micajah.fileservice.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "db.micajah.fileservice", "db.micajah.fileservice\db.micajah.fileservice.sqlproj", "{FC10A681-5D68-4843-92DC-4D458904B499}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "db.micajah.fileservice.client", "db.micajah.fileservice.client\db.micajah.fileservice.client.dbproj", "{46A9B591-9552-429B-8BD9-B12238E4ACEC}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "db.micajah.fileservice.client", "db.micajah.fileservice.client\db.micajah.fileservice.client.sqlproj", "{F0504355-6681-4CD5-B0C2-7FEC1BB723A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dal.micajah.fileservice", "dal.micajah.fileservice\dal.micajah.fileservice.csproj", "{465FD412-936C-4E08-808E-72B3D5E97605}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib.micajah.fileservice.client", "lib.micajah.fileservice.client\lib.micajah.fileservice.client.csproj", "{F288F4C6-1D31-4A9D-A731-89749F7EFA47}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice", "web.micajah.fileservice", "{12BE3DE3-6F7F-4796-85F8-B4EA77A8C5EB}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice", "web.micajah.fileservice\", "{12BE3DE3-6F7F-4796-85F8-B4EA77A8C5EB}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = ""
 		SccAuxPath = ""
@@ -34,7 +34,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice", "
 		VWDPort = "1572"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.client", "web.micajah.fileservice.client", "{B9D8527F-BE40-4E98-984D-DB10E6F580DC}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.client", "web.micajah.fileservice.client\", "{B9D8527F-BE40-4E98-984D-DB10E6F580DC}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = ""
 		SccAuxPath = ""
@@ -59,7 +59,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.cli
 		VWDPort = "1573"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.management", "web.micajah.fileservice.management", "{A635A44F-CD3D-4667-805E-8FA2B5D06E02}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.management", "web.micajah.fileservice.management\", "{A635A44F-CD3D-4667-805E-8FA2B5D06E02}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = ""
 		SccAuxPath = ""
@@ -90,10 +90,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46A9B591-9552-429B-8BD9-B12238E4ACEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46A9B591-9552-429B-8BD9-B12238E4ACEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC10A681-5D68-4843-92DC-4D458904B499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC10A681-5D68-4843-92DC-4D458904B499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0504355-6681-4CD5-B0C2-7FEC1BB723A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0504355-6681-4CD5-B0C2-7FEC1BB723A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{465FD412-936C-4E08-808E-72B3D5E97605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{465FD412-936C-4E08-808E-72B3D5E97605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465FD412-936C-4E08-808E-72B3D5E97605}.Release|Any CPU.ActiveCfg = Release|Any CPU
