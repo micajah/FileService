@@ -1,10 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "db.micajah.fileservice", "db.micajah.fileservice\db.micajah.fileservice.sqlproj", "{FC10A681-5D68-4843-92DC-4D458904B499}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "db.micajah.fileservice.client", "db.micajah.fileservice.client\db.micajah.fileservice.client.sqlproj", "{F0504355-6681-4CD5-B0C2-7FEC1BB723A9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dal.micajah.fileservice", "dal.micajah.fileservice\dal.micajah.fileservice.csproj", "{465FD412-936C-4E08-808E-72B3D5E97605}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib.micajah.fileservice.client", "lib.micajah.fileservice.client\lib.micajah.fileservice.client.csproj", "{F288F4C6-1D31-4A9D-A731-89749F7EFA47}"
@@ -59,16 +55,16 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.cli
 		VWDPort = "1573"
 	EndProjectSection
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FileService Server Database", "FileService Server Database\FileService Server Database.sqlproj", "{55BEAD17-9970-474A-93B6-5BE8DDE26A23}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FileService Client Database", "FileService Client Database\FileService Client Database.sqlproj", "{7541C88B-04C4-4357-B0B8-06273F7ADF66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FC10A681-5D68-4843-92DC-4D458904B499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC10A681-5D68-4843-92DC-4D458904B499}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0504355-6681-4CD5-B0C2-7FEC1BB723A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0504355-6681-4CD5-B0C2-7FEC1BB723A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{465FD412-936C-4E08-808E-72B3D5E97605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{465FD412-936C-4E08-808E-72B3D5E97605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465FD412-936C-4E08-808E-72B3D5E97605}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -85,6 +81,18 @@ Global
 		{B9D8527F-BE40-4E98-984D-DB10E6F580DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9D8527F-BE40-4E98-984D-DB10E6F580DC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{B9D8527F-BE40-4E98-984D-DB10E6F580DC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{55BEAD17-9970-474A-93B6-5BE8DDE26A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BEAD17-9970-474A-93B6-5BE8DDE26A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BEAD17-9970-474A-93B6-5BE8DDE26A23}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{55BEAD17-9970-474A-93B6-5BE8DDE26A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BEAD17-9970-474A-93B6-5BE8DDE26A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55BEAD17-9970-474A-93B6-5BE8DDE26A23}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7541C88B-04C4-4357-B0B8-06273F7ADF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7541C88B-04C4-4357-B0B8-06273F7ADF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7541C88B-04C4-4357-B0B8-06273F7ADF66}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7541C88B-04C4-4357-B0B8-06273F7ADF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7541C88B-04C4-4357-B0B8-06273F7ADF66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7541C88B-04C4-4357-B0B8-06273F7ADF66}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

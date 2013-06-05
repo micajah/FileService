@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>FileService_Server_Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{55bead17-9970-474a-93b6-5be8dde26a23}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>FileService_Server_Database</RootNamespace>
+    <AssemblyName>FileService_Server_Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>True</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables\" />
+    <Folder Include="Views\" />
+    <Folder Include="Functions\" />
+    <Folder Include="Stored Procedures\" />
+    <Folder Include="Sql Scripts" />
+    <Folder Include="Sql Scripts\Change Scripts" />
+    <Folder Include="Sql Scripts\Change Scripts\Convert dates to UTC" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Storage.sql" />
+    <Build Include="Tables\Application.sql" />
+    <Build Include="Tables\File.sql" />
+    <Build Include="Tables\Department.sql" />
+    <Build Include="Tables\FileExtension.sql" />
+    <Build Include="Tables\Organization.sql" />
+    <Build Include="Tables\TransferLog.sql" />
+    <Build Include="Tables\Vendor.sql" />
+    <Build Include="Views\FilesView.sql" />
+    <Build Include="Functions\GetChildFiles.sql" />
+    <Build Include="Stored Procedures\DeleteFile.sql" />
+    <Build Include="Stored Procedures\GetApplication.sql" />
+    <Build Include="Stored Procedures\GetFile.sql" />
+    <Build Include="Stored Procedures\GetFiles.sql" />
+    <Build Include="Stored Procedures\GetOrganizations.sql" />
+    <Build Include="Stored Procedures\GetStorage.sql" />
+    <Build Include="Stored Procedures\GetStorages.sql" />
+    <Build Include="Stored Procedures\GetTemporaryFiles.sql" />
+    <Build Include="Stored Procedures\GetThumbnailFileUniqueId.sql" />
+    <Build Include="Stored Procedures\GetVendor.sql" />
+    <Build Include="Stored Procedures\GetVendorApplications.sql" />
+    <Build Include="Stored Procedures\GetVendors.sql" />
+    <Build Include="Stored Procedures\GetVendorsUsedSpace.sql" />
+    <Build Include="Stored Procedures\InsertApplication.sql" />
+    <Build Include="Stored Procedures\InsertStorage.sql" />
+    <Build Include="Stored Procedures\InsertVendor.sql" />
+    <Build Include="Stored Procedures\UpdateApplication.sql" />
+    <Build Include="Stored Procedures\UpdateFile.sql" />
+    <Build Include="Stored Procedures\UpdateFileExpirationRequired.sql" />
+    <Build Include="Stored Procedures\UpdateFileTemporaryGuid.sql" />
+    <Build Include="Stored Procedures\UpdateOrganizationDepartment.sql" />
+    <Build Include="Stored Procedures\UpdateStorage.sql" />
+    <Build Include="Stored Procedures\UpdateTransferLog.sql" />
+    <Build Include="Stored Procedures\UpdateVendor.sql" />
+    <Build Include="Stored Procedures\ValidateStorage.sql" />
+    <None Include="Sql Scripts\Change Scripts\20090630.sql" />
+    <None Include="Sql Scripts\Change Scripts\20091204.sql" />
+    <None Include="Sql Scripts\Change Scripts\20100122.sql" />
+    <None Include="Sql Scripts\Change Scripts\RestoreFromMetadata1.sql" />
+    <None Include="Sql Scripts\Change Scripts\RestoreFromMetadata2.sql" />
+    <None Include="Sql Scripts\Change Scripts\Convert dates to UTC\GetUTCDateTime.sql" />
+    <None Include="Sql Scripts\Change Scripts\Convert dates to UTC\Server.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlSchemaCompareToLocal.scmp" />
+    <None Include="Sql Scripts\Change Scripts\Convert dates to UTC\ReadMe.txt" />
+  </ItemGroup>
+</Project>
