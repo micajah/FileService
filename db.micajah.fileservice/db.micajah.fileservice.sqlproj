@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>FileService_Server_Database</Name>
+    <Name>db.micajah.fileservice</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{55bead17-9970-474a-93b6-5be8dde26a23}</ProjectGuid>
@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>FileService_Server_Database</RootNamespace>
-    <AssemblyName>FileService_Server_Database</AssemblyName>
+    <RootNamespace>db.micajah.fileservice</RootNamespace>
+    <AssemblyName>db.micajah.fileservice</AssemblyName>
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
