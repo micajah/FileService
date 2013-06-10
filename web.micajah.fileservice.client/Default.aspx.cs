@@ -51,8 +51,9 @@ namespace Micajah.FileService.Web
 
             string _organization_guid = txtOrganizationGUID.Text;
             string _department_guid = txtDepartmentGUID.Text;
+            string checksum = null;
 
-            string _unique_id = Access.PutFile(ApplicationGUID, OrganizationName, ref _organization_guid, DepartmentName, ref _department_guid, file_path);
+            string _unique_id = Access.PutFile(ApplicationGUID, OrganizationName, ref _organization_guid, DepartmentName, ref _department_guid, file_path, ref checksum);
 
             txtOrganizationGUID.Text = _organization_guid;
             txtDepartmentGUID.Text = _department_guid;
@@ -125,8 +126,8 @@ namespace Micajah.FileService.Web
         protected void btnUpdateFile_Click(object sender, EventArgs e)
         {
             string file_path = txtUpdateFilePath.Text;
-
-            string _unique_id = Access.UpdateFile(txtUpdateFile.Text, file_path);
+            string checksum = null;
+            string _unique_id = Access.UpdateFile(txtUpdateFile.Text, file_path, ref checksum);
             txtUpdateFilePath.Text = "Output: " + _unique_id;
         }
 
@@ -148,8 +149,9 @@ namespace Micajah.FileService.Web
 
             string _organization_guid = txtOrganizationGUID.Text;
             string _department_guid = txtDepartmentGUID.Text;
+            string checksum = null;
 
-            string _unique_id = Access.PutFileAsByteArray(ApplicationGUID, OrganizationName, ref _organization_guid, DepartmentName, ref _department_guid, file_path, ref _byte_array);
+            string _unique_id = Access.PutFileAsByteArray(ApplicationGUID, OrganizationName, ref _organization_guid, DepartmentName, ref _department_guid, file_path, ref _byte_array, ref checksum);
 
             txtPutFileAsByteArray.Text = "Output: " + _unique_id;
 
@@ -168,7 +170,8 @@ namespace Micajah.FileService.Web
             };
 
             byte[] _byte_array = File.ReadAllBytes(file_path);
-            string _unique_id = Access.UpdateFileAsByteArray(txtUpdateAsArray.Text, file_path, ref _byte_array);
+            string checksum = null;
+            string _unique_id = Access.UpdateFileAsByteArray(txtUpdateAsArray.Text, file_path, ref _byte_array,ref checksum);
             txtUpdateAsArrayPath.Text = "Output: " + _unique_id;
         }
 
@@ -264,8 +267,9 @@ namespace Micajah.FileService.Web
 
             string _organization_guid = txtOrganizationGUID.Text;
             string _department_guid = txtDepartmentGUID.Text;
+            string checksum = null;
 
-            string _unique_id = Access.PutFileFromUrl(ApplicationGUID, OrganizationName, ref _organization_guid, DepartmentName, ref _department_guid, file_path);
+            string _unique_id = Access.PutFileFromUrl(ApplicationGUID, OrganizationName, ref _organization_guid, DepartmentName, ref _department_guid, file_path, ref checksum);
 
             txtOrganizationGUID.Text = _organization_guid;
             txtDepartmentGUID.Text = _department_guid;
@@ -276,8 +280,8 @@ namespace Micajah.FileService.Web
         protected void btnUpdateFromURL_Click(object sender, EventArgs e)
         {
             string file_path = txtUpdateFromURLPath.Text;
-
-            string _unique_id = Access.UpdateFileFromUrl(txtUpdateFromURL.Text, file_path);
+            string checksum = null;
+            string _unique_id = Access.UpdateFileFromUrl(txtUpdateFromURL.Text, file_path, ref checksum);
             txtUpdateFromURLPath.Text = "Output: " + _unique_id;
         }
 

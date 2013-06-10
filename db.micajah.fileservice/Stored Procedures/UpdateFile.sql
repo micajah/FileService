@@ -15,6 +15,7 @@
 	@Align int,
 	@ExpirationRequired bit,
 	@Deleted bit,
+	@Checksum varchar(32),
 	@UpdateTransferLog bit,
 	@ErrorCode int OUTPUT
 )
@@ -86,15 +87,16 @@ BEGIN
 			, UpdatedTime = @CurrentDate
 			, ExpirationRequired = (CASE WHEN @ExpirationRequired IS NOT NULL THEN @ExpirationRequired ELSE ExpirationRequired END)
 			, Deleted = @Deleted
+			, [Checksum] = @Checksum
 		WHERE FileUniqueId = @FileUniqueId;
 	END
 	ELSE
 		INSERT INTO dbo.[File] 
 			(FileUniqueId, ParentFileUniqueId, FileExtensionGuid, ApplicationGuid, StorageGuid, DepartmentGuid, [Name], SizeInBytes, Height, Width, Align
-			, ExpirationRequired, CreatedTime, UpdatedTime, TemporaryGuid, Deleted)
+			, ExpirationRequired, CreatedTime, UpdatedTime, TemporaryGuid, Deleted, [Checksum])
 		VALUES 
 			(@FileUniqueId, @ParentFileUniqueId, @FileExtensionGuid, @ApplicationGuid, @StorageGuid, @DepartmentGuid, @Name, @SizeInBytes, @Height, @Width, @Align
-			, ISNULL(@ExpirationRequired, 1), @CurrentDate, @CurrentDate, NULL, @Deleted);
+			, ISNULL(@ExpirationRequired, 1), @CurrentDate, @CurrentDate, NULL, @Deleted, @Checksum);
 
 	UPDATE dbo.Storage
 	SET CurrentSizeInBytes = ISNULL(CurrentSizeInBytes, 0) + @SizeInBytes,

@@ -1,18 +1,31 @@
+using Micajah.FileService.Dal;
+using Micajah.FileService.Dal.MainDataSetTableAdapters;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.UI;
-using Micajah.FileService.Dal;
-using Micajah.FileService.Dal.MainDataSetTableAdapters;
 
 namespace Micajah.FileService.WebService
 {
     public static class FileManager
     {
         #region Private Methods
+
+        private static string CalculateChecksum(Stream stream)
+        {
+            using (BufferedStream buffStream = new BufferedStream(stream))
+            {
+                using (MD5 md5 = MD5.Create())
+                {
+                    byte[] checksum = md5.ComputeHash(buffStream);
+                    return BitConverter.ToString(checksum).Replace("-", String.Empty).ToLowerInvariant();
+                }
+            }
+        }
 
         private static string CheckFileUrl(string fileUrl, ref string fileName)
         {
@@ -41,7 +54,7 @@ namespace Micajah.FileService.WebService
             return string.Empty;
         }
 
-        private static string CreateFile(string applicationGuid, string organizationGuid, string departmentGuid, string fileName, string tempFileName, bool fileNameIsUrl, bool? expirationRequired, HttpPostedFile file)
+        private static string CreateFile(string applicationGuid, string organizationGuid, string departmentGuid, string fileName, string tempFileName, bool fileNameIsUrl, bool? expirationRequired, HttpPostedFile file, ref string checksum)
         {
             string result = string.Empty;
 
@@ -110,11 +123,13 @@ namespace Micajah.FileService.WebService
                         }
                     }
 
+                    checksum = CalculateChecksum(destinationFileName);
+
                     using (FileTableAdapter adapter = new FileTableAdapter())
                     {
                         adapter.UpdateFile(fileUniqueId, null, fileExtension, fileMimeType
                             , applicationGuid, storageGuid.Value.ToString(), organizationGuid, departmentGuid
-                            , Path.GetFileNameWithoutExtension(fileNameWithExtension), sizeInBytes, width, height, null, expirationRequired, ref errorCode);
+                            , Path.GetFileNameWithoutExtension(fileNameWithExtension), sizeInBytes, width, height, null, expirationRequired, checksum, ref errorCode);
                     }
 
                     if (errorCode != 0)
@@ -208,6 +223,14 @@ namespace Micajah.FileService.WebService
 
         #region Public Methods
 
+        public static string CalculateChecksum(string fileName)
+        {
+            using (FileStream stream = File.OpenRead(fileName))
+            {
+                return CalculateChecksum(stream);
+            }
+        }
+
         public static string CopyFile(string applicationGuid, string organizationGuid, string departmentGuid, string fileUniqueId, string destinationOrganizationGuid, string destinationDepartmentGuid)
         {
             MainDataSet.FileRow row = GetFileInfo(fileUniqueId);
@@ -243,7 +266,7 @@ namespace Micajah.FileService.WebService
                         adapter.UpdateFile(destFileUniqueId, null, row.FileExtension, row.MimeType
                             , applicationGuid, storageGuid.Value.ToString(), destinationOrganizationGuid, destinationDepartmentGuid
                             , row.Name, row.SizeInBytes, (row.IsWidthNull() ? null : new int?(row.Width)), (row.IsHeightNull() ? null : new int?(row.Height))
-                            , (row.IsAlignNull() ? null : new int?(row.Align)), row.ExpirationRequired, ref errorCode);
+                            , (row.IsAlignNull() ? null : new int?(row.Align)), row.ExpirationRequired, (row.IsChecksumNull() ? null : row.Checksum), ref errorCode);
                     }
 
                     if (errorCode != 0)
@@ -308,7 +331,7 @@ namespace Micajah.FileService.WebService
         }
 
         public static string CreateFile(string applicationGuid, string organizationName, ref string organizationGuid, string departmentName, ref string departmentGuid
-            , GetFileRequestStreaming request)
+            , GetFileRequestStreaming request, ref string checksum)
         {
             string result = CreateAppInfo(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid);
             if (result.Length > 0) return result;
@@ -317,7 +340,7 @@ namespace Micajah.FileService.WebService
             {
                 if (string.Compare(Path.GetExtension(tempFileName), ".tmp", StringComparison.OrdinalIgnoreCase) != 0)
                 {
-                    result = CreateFile(applicationGuid, organizationGuid, departmentGuid, request.FileName, tempFileName, false, null, null);
+                    result = CreateFile(applicationGuid, organizationGuid, departmentGuid, request.FileName, tempFileName, false, null, null, ref checksum);
                     break;
                 }
             }
@@ -326,12 +349,12 @@ namespace Micajah.FileService.WebService
         }
 
         public static string CreateFile(string applicationGuid, string organizationName, ref string organizationGuid, string departmentName, ref string departmentGuid
-            , string fileUrl)
+            , string fileUrl, ref string checksum)
         {
             string result = CreateAppInfo(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid);
             if (result.Length > 0) return result;
 
-            result = CreateFile(applicationGuid, organizationGuid, departmentGuid, fileUrl, null, true, null, null);
+            result = CreateFile(applicationGuid, organizationGuid, departmentGuid, fileUrl, null, true, null, null, ref checksum);
 
             return result;
         }
@@ -342,11 +365,12 @@ namespace Micajah.FileService.WebService
             object[] objs = new object[5];
             string result = CreateAppInfo(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid);
             if (result.Length > 0)
-                objs[3] = result;
+                objs[4] = result;
             else
             {
                 string fileName = Path.GetFileName(file.FileName);
-                string fileUniqueId = CreateFile(applicationGuid, organizationGuid, departmentGuid, fileName, null, false, expirationRequired, file);
+                string checksum = null;
+                string fileUniqueId = CreateFile(applicationGuid, organizationGuid, departmentGuid, fileName, null, false, expirationRequired, file, ref checksum);
                 if (StringIsFileUniqueId(fileUniqueId))
                 {
                     result = UpdateFileTemporaryGuid(fileUniqueId, temporaryGuid);
@@ -355,9 +379,10 @@ namespace Micajah.FileService.WebService
                         objs[0] = fileUniqueId;
                         objs[1] = fileName;
                         objs[2] = file.ContentLength;
+                        objs[3] = checksum;
                     }
                     else
-                        objs[3] = result;
+                        objs[4] = result;
                 }
             }
             return objs;
@@ -674,7 +699,7 @@ namespace Micajah.FileService.WebService
             return sb.ToString();
         }
 
-        public static string UpdateFile(string fileUniqueId, string fileName, bool fileNameIsUrl)
+        public static string UpdateFile(string fileUniqueId, string fileName, bool fileNameIsUrl, ref string checksum)
         {
             string result = string.Empty;
 
@@ -769,11 +794,13 @@ namespace Micajah.FileService.WebService
                         }
                     }
 
+                    checksum = CalculateChecksum(destinationFileName);
+
                     using (FileTableAdapter adapter = new FileTableAdapter())
                     {
                         adapter.UpdateFile(fileUniqueId, null, fileExtension, fileMimeType
                             , applicationGuid, row.StorageGuid.ToString(), organizationGuid, departmentGuid
-                            , Path.GetFileNameWithoutExtension(fileNameWithExtension), (int)fileInfo.Length, width, height, null, row.ExpirationRequired, ref errorCode);
+                            , Path.GetFileNameWithoutExtension(fileNameWithExtension), (int)fileInfo.Length, width, height, null, row.ExpirationRequired, checksum, ref errorCode);
                     }
 
                     if (errorCode != 0)

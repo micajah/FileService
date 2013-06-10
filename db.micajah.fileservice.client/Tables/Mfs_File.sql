@@ -9,6 +9,7 @@
     [UpdatedTime]     DATETIME         NOT NULL,
     [UpdatedBy]       NVARCHAR (255)   NULL,
     [Deleted]         BIT              NOT NULL,
+    [Checksum] VARCHAR(32) NULL, 
     CONSTRAINT [PK_Mfs_File] PRIMARY KEY CLUSTERED ([OrganizationId] ASC, [DepartmentId] ASC, [FileUniqueId] ASC)
 );
 

@@ -62,8 +62,6 @@ namespace Micajah.FileService.Dal
                     if (!filePath.EndsWith("\\", StringComparison.OrdinalIgnoreCase)) filePath += "\\";
                     if (this.FileUniqueId.Length > 1)
                         filePath += string.Format(CultureInfo.InvariantCulture, "{0}\\{1}\\", this.FileUniqueId[0], this.FileUniqueId[1]);
-                    int width = (this.IsWidthNull() ? 0 : this.Width);
-                    int height = (this.IsHeightNull() ? 0 : this.Height);
                     filePath += this.FileUniqueId;
                     return filePath;
                 }
@@ -149,15 +147,15 @@ namespace Micajah.FileService.Dal.MainDataSetTableAdapters
             this.UpdateFile(row.FileUniqueId, (row.IsParentFileUniqueIdNull() ? null : row.ParentFileUniqueId), row.FileExtension, row.MimeType, row.ApplicationGuid, row.StorageGuid
                 , row.OrganizationGuid, row.DepartmentGuid, row.Name, row.SizeInBytes
                 , (row.IsWidthNull() ? null : new int?(row.Width)), (row.IsHeightNull() ? null : new int?(row.Height)), (row.IsAlignNull() ? null : new int?(row.Align))
-                , row.ExpirationRequired, row.Deleted, false, ref errorCode);
+                , row.ExpirationRequired, row.Deleted, row.Checksum, false, ref errorCode);
             return errorCode;
         }
 
         public void UpdateFile(string fileUniqueId, string parentFileUniqueId, string fileExtension, string mimeType, string applicationGuid, string storageGuid
-            , string organizationGuid, string departmentGuid, string name, int sizeInBytes, int? width, int? height, int? align, bool? expirationRequired, ref int errorCode)
+            , string organizationGuid, string departmentGuid, string name, int sizeInBytes, int? width, int? height, int? align, bool? expirationRequired, string checksum, ref int errorCode)
         {
             this.UpdateFile(fileUniqueId, parentFileUniqueId, fileExtension, mimeType, Helper.CreateGuid(applicationGuid), Helper.CreateGuid(storageGuid)
-            , Helper.CreateGuid(organizationGuid), Helper.CreateGuid(departmentGuid), name, sizeInBytes, width, height, align, expirationRequired, false, true, ref errorCode);
+                , Helper.CreateGuid(organizationGuid), Helper.CreateGuid(departmentGuid), name, sizeInBytes, width, height, align, expirationRequired, false, checksum, true, ref errorCode);
         }
 
         public void UpdateFileTemporaryGuid(string fileUniqueId, string temporaryGuid)

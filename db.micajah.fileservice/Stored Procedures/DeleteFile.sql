@@ -7,7 +7,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT f.FileUniqueId, f.ParentFileUniqueId, f.FileExtensionGuid, f.ApplicationGuid, f.StorageGuid, f.DepartmentGuid, f.[Name], f.SizeInBytes, f.Height, f.Width, f.Align, f.ExpirationRequired
-		, f.CreatedTime, f.UpdatedTime, f.TemporaryGuid, f.Deleted, f.FileExtension, f.MimeType, f.StoragePath, f.OrganizationGuid
+		, f.CreatedTime, f.UpdatedTime, f.TemporaryGuid, f.Deleted, f.[Checksum], f.FileExtension, f.MimeType, f.StoragePath, f.OrganizationGuid
 	FROM dbo.GetChildFiles(@FileUniqueId) AS c
 	INNER JOIN FilesView AS f
 		ON	c.FileUniqueId = f.FileUniqueId;

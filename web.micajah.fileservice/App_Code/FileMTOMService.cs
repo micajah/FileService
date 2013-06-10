@@ -21,7 +21,7 @@ namespace Micajah.FileService.WebService
         }
 
         [WebMethod]
-        public bool GetFileInfo(string fileId, ref string fullFileName, ref long fileSize, ref int width, ref int height, ref int align, ref string fileMimeType)
+        public bool GetFileInfo(string fileId, ref string fullFileName, ref long fileSize, ref int width, ref int height, ref int align, ref string fileMimeType, ref string checksum)
         {
             MainDataSet.FileRow row = FileManager.GetFileInfo(fileId);
             if (row != null)
@@ -32,6 +32,7 @@ namespace Micajah.FileService.WebService
                 height = (row.IsHeightNull() ? 0 : row.Height);
                 align = (row.IsAlignNull() ? 1 : row.Align);
                 fileMimeType = row.MimeType;
+                if (!row.IsChecksumNull()) checksum = row.Checksum;
 
                 return true;
             }
@@ -67,15 +68,15 @@ namespace Micajah.FileService.WebService
         }
 
         [WebMethod]
-        public string PutFile(string applicationGuid, string organizationName, ref string organizationGuid, string departmentName, ref string departmentGuid, GetFileRequestStreaming request)
+        public string PutFile(string applicationGuid, string organizationName, ref string organizationGuid, string departmentName, ref string departmentGuid, GetFileRequestStreaming request, ref string checksum)
         {
-            return FileManager.CreateFile(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid, request);
+            return FileManager.CreateFile(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid, request, ref checksum);
         }
 
         [WebMethod]
-        public string PutFileFromUrl(string applicationGuid, string organizationName, ref string organizationGuid, string departmentName, ref string departmentGuid, string fileUrl)
+        public string PutFileFromUrl(string applicationGuid, string organizationName, ref string organizationGuid, string departmentName, ref string departmentGuid, string fileUrl, ref string checksum)
         {
-            return FileManager.CreateFile(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid, fileUrl);
+            return FileManager.CreateFile(applicationGuid, organizationName, ref organizationGuid, departmentName, ref departmentGuid, fileUrl, ref checksum);
         }
 
         [WebMethod]
@@ -85,7 +86,7 @@ namespace Micajah.FileService.WebService
         }
 
         [WebMethod]
-        public string UpdateFile(string fileId, GetFileRequestStreaming request)
+        public string UpdateFile(string fileId, GetFileRequestStreaming request, ref string checksum)
         {
             string result = string.Empty;
 
@@ -93,7 +94,7 @@ namespace Micajah.FileService.WebService
             {
                 if (string.Compare(Path.GetExtension(fileName), ".tmp", StringComparison.OrdinalIgnoreCase) != 0)
                 {
-                    result = FileManager.UpdateFile(fileId, request.FileName, false);
+                    result = FileManager.UpdateFile(fileId, request.FileName, false, ref checksum);
                     break;
                 }
             }
@@ -102,9 +103,9 @@ namespace Micajah.FileService.WebService
         }
 
         [WebMethod]
-        public string UpdateFileFromUrl(string fileId, string fileUrl)
+        public string UpdateFileFromUrl(string fileId, string fileUrl, ref string checksum)
         {
-            return FileManager.UpdateFile(fileId, fileUrl, true);
+            return FileManager.UpdateFile(fileId, fileUrl, true, ref checksum);
         }
 
         [WebMethod]

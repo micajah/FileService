@@ -1,3 +1,8 @@
+using Micajah.FileService.Client.Dal;
+using Micajah.FileService.Client.Dal.MetaDataSetTableAdapters;
+using Micajah.FileService.Client.Properties;
+using Micajah.FileService.Client.WebService;
+using Microsoft.Web.Services3;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,11 +14,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Services.Protocols;
-using Micajah.FileService.Client.Dal;
-using Micajah.FileService.Client.Dal.MetaDataSetTableAdapters;
-using Micajah.FileService.Client.Properties;
-using Micajah.FileService.Client.WebService;
-using Microsoft.Web.Services3;
 
 namespace Micajah.FileService.Client
 {
@@ -38,6 +38,57 @@ namespace Micajah.FileService.Client
         #endregion
 
         #region Private Methods
+
+        private static string CalculateChecksum(string fileName)
+        {
+            using (FileStream stream = File.OpenRead(fileName))
+            {
+                return CalculateChecksum(stream);
+            }
+        }
+
+        private static string CalculateChecksum(byte[] fileContent)
+        {
+            using (MemoryStream stream = new MemoryStream(fileContent))
+            {
+                return CalculateChecksum(stream);
+            }
+        }
+
+        private static string CalculateChecksum(Stream stream)
+        {
+            using (BufferedStream buffStream = new BufferedStream(stream))
+            {
+                using (MD5 md5 = MD5.Create())
+                {
+                    byte[] checksum = md5.ComputeHash(buffStream);
+                    return BitConverter.ToString(checksum).Replace("-", String.Empty).ToLowerInvariant();
+                }
+            }
+        }
+
+        private static bool ChecksumExists(string checksum, Guid organizationId, Guid departmentId, string localObjectId, string localObjectType, string connectionString)
+        {
+            using (FileTableAdapter adapter = new FileTableAdapter(string.IsNullOrEmpty(connectionString) ? Settings.Default.MetaDataConnectionString : connectionString))
+            {
+                using (MetaDataSet.FileDataTable table = adapter.GetFiles(organizationId, departmentId, localObjectType, localObjectId, false))
+                {
+                    if (table.Count > 0)
+                    {
+                        foreach (MetaDataSet.FileRow row in table)
+                        {
+                            if (!row.IsChecksumNull())
+                            {
+                                if (string.Compare(checksum, row.Checksum, StringComparison.OrdinalIgnoreCase) == 0)
+                                    return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
 
         private static string ReadFile(string fullFileName, ref byte[] fileContent)
         {
@@ -161,7 +212,7 @@ namespace Micajah.FileService.Client
                     if (table.Count > 0)
                     {
                         MetaDataSet.FileRow row = table[0];
-                        adapter.Insert(result, destinationOrganizationId, destinationDepartmentId, row.LocalObjectType, row.LocalObjectId, row.Name, row.SizeInBytes, DateTime.UtcNow, updatedBy, row.Deleted);
+                        adapter.Insert(result, destinationOrganizationId, destinationDepartmentId, row.LocalObjectType, row.LocalObjectId, row.Name, row.SizeInBytes, DateTime.UtcNow, updatedBy, row.Deleted, (row.IsChecksumNull() ? null : row.Checksum));
                     }
                 }
             }
@@ -177,13 +228,13 @@ namespace Micajah.FileService.Client
             return result;
         }
 
-        public static bool GetFileInfo(string fileUniqueId, ref string fileNameWithExtension, ref long sizeInBytes, ref int width, ref int height, ref int align, ref string mimeType)
+        public static bool GetFileInfo(string fileUniqueId, ref string fileNameWithExtension, ref long sizeInBytes, ref int width, ref int height, ref int align, ref string mimeType, ref string checksum)
         {
             bool result = false;
 
             try
             {
-                result = ServiceProxy.GetFileInfo(fileUniqueId, ref fileNameWithExtension, ref sizeInBytes, ref width, ref height, ref align, ref mimeType);
+                result = ServiceProxy.GetFileInfo(fileUniqueId, ref fileNameWithExtension, ref sizeInBytes, ref width, ref height, ref align, ref mimeType, ref checksum);
             }
             catch (Exception ex)
             {
@@ -275,7 +326,7 @@ namespace Micajah.FileService.Client
             List<string> list = new List<string>();
             using (FileTableAdapter adapter = new FileTableAdapter(connectionString))
             {
-                using (MetaDataSet.FileDataTable table = adapter.GetFiles(organizationId, departmentId, localObjectId, localObjectType, false))
+                using (MetaDataSet.FileDataTable table = adapter.GetFiles(organizationId, departmentId, localObjectType, localObjectId, false))
                 {
                     foreach (MetaDataSet.FileRow row in table)
                     {
@@ -342,30 +393,40 @@ namespace Micajah.FileService.Client
             return null;
         }
 
-        public static string PutFile(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
-            , string fullFileName)
+        public static bool FileExists(byte[] fileContent, Guid organizationId, Guid departmentId, string localObjectId, string localObjectType, string connectionString)
         {
-            return PutFile(applicationId, organizationName, ref  organizationId, departmentName, ref  departmentId, fullFileName, Settings.Default.LinksExpiration);
+            return ChecksumExists(CalculateChecksum(fileContent), organizationId, departmentId, localObjectId, localObjectType, connectionString);
+        }
+
+        public static bool FileExists(string fileName, Guid organizationId, Guid departmentId, string localObjectId, string localObjectType, string connectionString)
+        {
+            return ChecksumExists(CalculateChecksum(fileName), organizationId, departmentId, localObjectId, localObjectType, connectionString);
         }
 
         public static string PutFile(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
-            , string fullFileName, bool expirationRequired)
+            , string fullFileName, ref string checksum)
+        {
+            return PutFile(applicationId, organizationName, ref  organizationId, departmentName, ref  departmentId, fullFileName, Settings.Default.LinksExpiration, ref checksum);
+        }
+
+        public static string PutFile(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
+            , string fullFileName, bool expirationRequired, ref string checksum)
         {
             byte[] fileContent = null;
             string result = ReadFile(fullFileName, ref fileContent);
             if (result.Length == 0)
-                result = PutFileAsByteArray(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fullFileName, ref fileContent, expirationRequired);
+                result = PutFileAsByteArray(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fullFileName, ref fileContent, expirationRequired, ref checksum);
             return result;
         }
 
         public static string PutFileFromUrl(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
-            , string fileUrl)
+            , string fileUrl, ref string checksum)
         {
-            return PutFileFromUrl(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fileUrl, Settings.Default.LinksExpiration);
+            return PutFileFromUrl(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fileUrl, Settings.Default.LinksExpiration, ref checksum);
         }
 
         public static string PutFileFromUrl(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
-            , string fileUrl, bool expirationRequired)
+            , string fileUrl, bool expirationRequired, ref string checksum)
         {
             string result = "Error: Unknown error.";
 
@@ -373,7 +434,7 @@ namespace Micajah.FileService.Client
             {
                 FileMtomService serviceproxy = ServiceProxy;
 
-                result = serviceproxy.PutFileFromUrl(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fileUrl);
+                result = serviceproxy.PutFileFromUrl(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fileUrl, ref checksum);
                 if ((!expirationRequired) && StringIsFileUniqueId(result))
                     serviceproxy.UpdateFileExpirationRequired(result, expirationRequired);
             }
@@ -387,13 +448,13 @@ namespace Micajah.FileService.Client
         }
 
         public static string PutFileAsByteArray(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId,
-            string fileNameWithExtension, ref byte[] fileContent)
+            string fileNameWithExtension, ref byte[] fileContent, ref string checksum)
         {
-            return PutFileAsByteArray(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fileNameWithExtension, ref fileContent, Settings.Default.LinksExpiration);
+            return PutFileAsByteArray(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, fileNameWithExtension, ref fileContent, Settings.Default.LinksExpiration, ref checksum);
         }
 
         public static string PutFileAsByteArray(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId,
-            string fileNameWithExtension, ref byte[] fileContent, bool expirationRequired)
+            string fileNameWithExtension, ref byte[] fileContent, bool expirationRequired, ref string checksum)
         {
             string result = "Error: Unknown error.";
 
@@ -405,7 +466,7 @@ namespace Micajah.FileService.Client
                 request.fileName = fileNameWithExtension;
                 request.fileData = fileContent;
 
-                result = serviceproxy.PutFile(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, request);
+                result = serviceproxy.PutFile(applicationId, organizationName, ref organizationId, departmentName, ref departmentId, request, ref checksum);
                 if ((!expirationRequired) && StringIsFileUniqueId(result))
                     serviceproxy.UpdateFileExpirationRequired(result, expirationRequired);
             }
@@ -419,23 +480,23 @@ namespace Micajah.FileService.Client
         }
 
         public static string PutFileAsByteArray(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
-            , string fileNameWithExtension, ref byte[] fileContent, string localObjectId, string localObjectType, string updatedBy, string connectionString)
+            , string fileNameWithExtension, ref byte[] fileContent, ref string checksum, string localObjectId, string localObjectType, string updatedBy, string connectionString)
         {
             return PutFileAsByteArray(applicationId, organizationName, ref  organizationId, departmentName, ref  departmentId
-            , fileNameWithExtension, ref fileContent, Settings.Default.LinksExpiration, localObjectId, localObjectType, updatedBy, connectionString);
+            , fileNameWithExtension, ref fileContent, Settings.Default.LinksExpiration, ref checksum, localObjectId, localObjectType, updatedBy, connectionString);
         }
 
         public static string PutFileAsByteArray(string applicationId, string organizationName, ref string organizationId, string departmentName, ref string departmentId
-            , string fileNameWithExtension, ref byte[] fileContent, bool expirationRequired, string localObjectId, string localObjectType, string updatedBy, string connectionString)
+            , string fileNameWithExtension, ref byte[] fileContent, bool expirationRequired, ref string checksum, string localObjectId, string localObjectType, string updatedBy, string connectionString)
         {
-            string result = PutFileAsByteArray(applicationId, organizationName, ref  organizationId, departmentName, ref  departmentId, fileNameWithExtension, ref fileContent, expirationRequired);
+            string result = PutFileAsByteArray(applicationId, organizationName, ref  organizationId, departmentName, ref  departmentId, fileNameWithExtension, ref fileContent, expirationRequired, ref checksum);
             if (StringIsFileUniqueId(result))
             {
                 FileTableAdapter adapter = null;
                 try
                 {
                     adapter = new FileTableAdapter(connectionString);
-                    adapter.Insert(result, Support.CreateGuid(organizationId), Support.CreateGuid(departmentId), localObjectType, localObjectId, fileNameWithExtension, fileContent.Length, DateTime.UtcNow, updatedBy, false);
+                    adapter.Insert(result, Support.CreateGuid(organizationId), Support.CreateGuid(departmentId), localObjectType, localObjectId, fileNameWithExtension, fileContent.Length, DateTime.UtcNow, updatedBy, false, checksum);
                 }
                 catch (DBConcurrencyException ex)
                 {
@@ -453,12 +514,12 @@ namespace Micajah.FileService.Client
             return result;
         }
 
-        public static string UpdateFile(string fileUniqueId, string nameWithExtension)
+        public static string UpdateFile(string fileUniqueId, string nameWithExtension, ref string checksum)
         {
-            return UpdateFile(fileUniqueId, nameWithExtension, Settings.Default.LinksExpiration);
+            return UpdateFile(fileUniqueId, nameWithExtension, Settings.Default.LinksExpiration, ref checksum);
         }
 
-        public static string UpdateFile(string fileUniqueId, string nameWithExtension, bool expirationRequired)
+        public static string UpdateFile(string fileUniqueId, string nameWithExtension, bool expirationRequired, ref string checksum)
         {
             string result = "Error: Unknown error.";
 
@@ -474,7 +535,7 @@ namespace Micajah.FileService.Client
                     request.fileName = nameWithExtension;
                     request.fileData = fileContent;
 
-                    result = serviceproxy.UpdateFile(fileUniqueId, request);
+                    result = serviceproxy.UpdateFile(fileUniqueId, request, ref checksum);
                     if ((!expirationRequired) && (result.Length == 0))
                         serviceproxy.UpdateFileExpirationRequired(fileUniqueId, expirationRequired);
                 }
@@ -488,12 +549,12 @@ namespace Micajah.FileService.Client
             return result;
         }
 
-        public static string UpdateFileFromUrl(string fileUniqueId, string url)
+        public static string UpdateFileFromUrl(string fileUniqueId, string url, ref string checksum)
         {
-            return UpdateFileFromUrl(fileUniqueId, url, Settings.Default.LinksExpiration);
+            return UpdateFileFromUrl(fileUniqueId, url, Settings.Default.LinksExpiration, ref checksum);
         }
 
-        public static string UpdateFileFromUrl(string fileUniqueId, string url, bool expirationRequired)
+        public static string UpdateFileFromUrl(string fileUniqueId, string url, bool expirationRequired, ref string checksum)
         {
             string result = "Error: Unknown error.";
 
@@ -501,7 +562,7 @@ namespace Micajah.FileService.Client
             {
                 FileMtomService serviceproxy = ServiceProxy;
 
-                result = serviceproxy.UpdateFileFromUrl(fileUniqueId, url);
+                result = serviceproxy.UpdateFileFromUrl(fileUniqueId, url, ref checksum);
                 if ((!expirationRequired) && (result.Length == 0))
                     result = serviceproxy.UpdateFileExpirationRequired(fileUniqueId, expirationRequired);
             }
@@ -514,12 +575,12 @@ namespace Micajah.FileService.Client
             return result;
         }
 
-        public static string UpdateFileAsByteArray(string fileUniqueId, string fileNameWithExtension, ref byte[] content)
+        public static string UpdateFileAsByteArray(string fileUniqueId, string fileNameWithExtension, ref byte[] content, ref string checksum)
         {
-            return UpdateFileAsByteArray(fileUniqueId, fileNameWithExtension, ref  content, Settings.Default.LinksExpiration);
+            return UpdateFileAsByteArray(fileUniqueId, fileNameWithExtension, ref  content, Settings.Default.LinksExpiration, ref checksum);
         }
 
-        public static string UpdateFileAsByteArray(string fileUniqueId, string fileNameWithExtension, ref byte[] content, bool expirationRequired)
+        public static string UpdateFileAsByteArray(string fileUniqueId, string fileNameWithExtension, ref byte[] content, bool expirationRequired, ref string checksum)
         {
             string result = "Error: Unknown error.";
 
@@ -531,7 +592,7 @@ namespace Micajah.FileService.Client
                 request.fileName = fileNameWithExtension;
                 request.fileData = content;
 
-                result = serviceproxy.UpdateFile(fileUniqueId, request);
+                result = serviceproxy.UpdateFile(fileUniqueId, request, ref checksum);
                 if ((!expirationRequired) && (result.Length == 0))
                     result = serviceproxy.UpdateFileExpirationRequired(fileUniqueId, expirationRequired);
             }

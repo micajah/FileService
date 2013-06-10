@@ -982,7 +982,7 @@ namespace Micajah.FileService.WebControls
             {
                 if (byFlash)
                 {
-                    string errorMessage = (string)objs[3];
+                    string errorMessage = (string)objs[4];
                     if (!string.IsNullOrEmpty(errorMessage))
                     {
                         if (!m_ErrorMessages.Contains(errorMessage))
@@ -1005,6 +1005,7 @@ namespace Micajah.FileService.WebControls
                 {
                     row.Deleted = false;
                     row.IsTemporary = true;
+                    row.Checksum = (string)objs[3];
 
                     m_UploadedFileFullNames.Add((string)objs[1]);
                 }
@@ -1086,6 +1087,7 @@ namespace Micajah.FileService.WebControls
                 {
                     int fileSize = (int)file.InputStream.Length;
                     byte[] bytes = new byte[fileSize];
+                    string checksum = null;
                     file.InputStream.Read(bytes, 0, fileSize);
 
                     string organizationGuidString = this.OrganizationId.ToString();
@@ -1093,7 +1095,7 @@ namespace Micajah.FileService.WebControls
                     string uniqueId = Access.PutFileAsByteArray(Settings.Default.ApplicationId.ToString()
                         , this.OrganizationName, ref organizationGuidString
                         , this.DepartmentName, ref departmentGuidString
-                        , file.FileName, ref bytes);
+                        , file.FileName, ref bytes, ref checksum);
 
                     if (Access.StringIsFileUniqueId(uniqueId))
                     {
@@ -1113,6 +1115,7 @@ namespace Micajah.FileService.WebControls
                             row.Deleted = false;
                             row.IsTemporary = true;
                             row.UpdatedTime = DateTime.UtcNow;
+                            row.Checksum = checksum;
                             this.FilesMetaData.AddFileRow(row);
 
                             m_UploadedFileFullNames.Add(file.FileName);

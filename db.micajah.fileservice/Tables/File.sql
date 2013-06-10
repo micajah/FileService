@@ -15,6 +15,7 @@
     [UpdatedTime]        DATETIME         NOT NULL,
     [TemporaryGuid]      UNIQUEIDENTIFIER NULL,
     [Deleted]            BIT              CONSTRAINT [DF_File_Deleted] DEFAULT ((0)) NOT NULL,
+    [Checksum] VARCHAR(32) NULL, 
     CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED ([FileUniqueId] ASC),
     CONSTRAINT [FK_File_Application] FOREIGN KEY ([ApplicationGuid]) REFERENCES [dbo].[Application] ([ApplicationGuid]),
     CONSTRAINT [FK_File_Department] FOREIGN KEY ([DepartmentGuid]) REFERENCES [dbo].[Department] ([DepartmentGuid]),

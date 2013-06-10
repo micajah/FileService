@@ -628,10 +628,11 @@ namespace Micajah.FileService.WebControls
                                     byte[] bytes = FileFromMyComputer.FileBytes;
                                     string organizationGuidString = this.OrganizationId.ToString();
                                     string departmentGuidString = this.DepartmentId.ToString();
+                                    string checksum = null;
                                     uniqueId = Access.PutFileAsByteArray(Settings.Default.ApplicationId.ToString()
                                         , this.OrganizationName, ref organizationGuidString
                                         , this.DepartmentName, ref departmentGuidString
-                                        , file.FileName, ref bytes);
+                                        , file.FileName, ref bytes, ref checksum);
                                     if (!Access.StringIsFileUniqueId(uniqueId)) m_ErrorMessage = uniqueId;
                                 }
                                 else
@@ -656,10 +657,11 @@ namespace Micajah.FileService.WebControls
                             {
                                 string organizationGuidString = this.OrganizationId.ToString();
                                 string departmentGuidString = this.DepartmentId.ToString();
+                                string checksum = null;
                                 uniqueId = Access.PutFileFromUrl(Settings.Default.ApplicationId.ToString()
                                     , this.OrganizationName, ref organizationGuidString
                                     , this.DepartmentName, ref departmentGuidString
-                                    , url);
+                                    , url, ref checksum);
                                 if (!Access.StringIsFileUniqueId(uniqueId)) m_ErrorMessage = uniqueId;
                             }
                             else
@@ -851,9 +853,10 @@ namespace Micajah.FileService.WebControls
                             int width = 0;
                             int height = 0;
                             int align = 0;
+                            string checksum = null;
 
-                            if (Access.GetFileInfo(currentFileUniqueId, ref fileNameWithExtension, ref sizeInBytes, ref width, ref height, ref align, ref mimeType))
-                                adapter.Insert(currentFileUniqueId, this.OrganizationId, this.DepartmentId, this.LocalObjectType, this.LocalObjectId, fileNameWithExtension, (int)sizeInBytes, DateTime.UtcNow, this.UpdatedBy, false);
+                            if (Access.GetFileInfo(currentFileUniqueId, ref fileNameWithExtension, ref sizeInBytes, ref width, ref height, ref align, ref mimeType, ref checksum))
+                                adapter.Insert(currentFileUniqueId, this.OrganizationId, this.DepartmentId, this.LocalObjectType, this.LocalObjectId, fileNameWithExtension, (int)sizeInBytes, DateTime.UtcNow, this.UpdatedBy, false, checksum);
                         }
                     }
 

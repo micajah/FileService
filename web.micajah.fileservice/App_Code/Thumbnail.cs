@@ -254,7 +254,7 @@ namespace Micajah.FileService.WebService
                                 {
                                     adapter.UpdateFile(thumbnailFileUniqueId, fileId, fileExtension, MimeType.GetMimeType(fileExtension)
                                         , applicationGuid, storageGuid.Value.ToString(), organizationGuid, departmentGuid
-                                        , Path.GetFileNameWithoutExtension(tempFileNameNew), (int)fileInfo.Length, width, height, align, row.ExpirationRequired, ref errorCode);
+                                        , Path.GetFileNameWithoutExtension(tempFileNameNew), (int)fileInfo.Length, width, height, align, row.ExpirationRequired, null, ref errorCode);
                                 }
 
                                 if (errorCode == 0)
