@@ -1423,7 +1423,7 @@ namespace Micajah.FileService.Tools.UpdateChecksum.MainDataSetTableAdapters {
             this._commandCollection[0].CommandText = @"SELECT        FileUniqueId, ParentFileUniqueId, FileExtensionGuid, ApplicationGuid, StorageGuid, DepartmentGuid, Name, SizeInBytes, Height, Width, Align, ExpirationRequired, 
                          CreatedTime, UpdatedTime, TemporaryGuid, Deleted, Checksum, FileExtension, MimeType, StoragePath, OrganizationGuid
 FROM            FilesView
-WHERE        (Checksum IS NULL)";
+WHERE        (Checksum IS NULL) AND (ParentFileUniqueId IS NULL)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

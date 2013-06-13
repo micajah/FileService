@@ -38,6 +38,8 @@ namespace Micajah.FileService.Tools.UpdateChecksum
 
             try
             {
+                Console.WriteLine("Step 1. Update checksum column in File table of FileService server database.\r\n");
+
                 adapter = new MainDataSetTableAdapters.FilesViewTableAdapter();
                 table = new MainDataSet.FilesViewDataTable();
 
@@ -45,8 +47,6 @@ namespace Micajah.FileService.Tools.UpdateChecksum
 
                 int totalCount = table.Count;
                 int successCount = 0;
-
-                Console.WriteLine("Step 1. Update checksum column in File table of FileService server database.\r\n");
 
                 foreach (MainDataSet.FilesViewRow row in table)
                 {
@@ -64,15 +64,16 @@ namespace Micajah.FileService.Tools.UpdateChecksum
                     }
                     catch (DirectoryNotFoundException)
                     {
-                        Console.WriteLine(" Failed: The file specified in path was not found.\r\n");
+                        Console.WriteLine(" Failed: The file specified in path was not found.");
                     }
                     catch (FileNotFoundException)
                     {
-                        Console.WriteLine(" Failed: The file specified in path was not found.\r\n");
+                        Console.WriteLine(" Failed: The file specified in path was not found.");
                     }
                 }
 
-                Console.WriteLine(@"Total files found: {0}
+                Console.WriteLine(@"
+Total files found: {0}
 Updated: {1}
 Failed: {2}
 "
@@ -100,7 +101,7 @@ Failed: {2}
                     if (Micajah.FileService.Client.Access.GetFileInfo(row2.FileUniqueId, ref  fileNameWithExtension, ref  sizeInBytes, ref  width, ref  height, ref  align, ref  mimeType, ref  checksum))
                     {
                         if (string.IsNullOrEmpty(checksum))
-                            Console.WriteLine(" Failed: Checksum is empty.\r\n");
+                            Console.WriteLine(" Failed: Checksum is empty.");
                         else
                         {
                             row2.Checksum = checksum;
@@ -108,11 +109,11 @@ Failed: {2}
 
                             successCount++;
 
-                            Console.WriteLine(" Done.\r\n");
+                            Console.WriteLine(" Done.");
                         }
                     }
                     else
-                        Console.WriteLine(" Failed.\r\n");
+                        Console.WriteLine(" Failed.");
 
                     totalCount++;
                 }
