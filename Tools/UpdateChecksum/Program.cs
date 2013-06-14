@@ -131,6 +131,8 @@ Failed: {2}"
             {
                 if (adapter != null) adapter.Dispose();
                 if (table != null) table.Dispose();
+                if (adapter2 != null) adapter2.Dispose();
+                if (table2 != null) table2.Dispose();
             }
 
             Console.WriteLine("\r\nPress any key to quit.");
