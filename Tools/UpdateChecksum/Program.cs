@@ -62,13 +62,9 @@ namespace Micajah.FileService.Tools.UpdateChecksum
 
                         Console.WriteLine(" Done.");
                     }
-                    catch (DirectoryNotFoundException)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine(" Failed: The file specified in path was not found.");
-                    }
-                    catch (FileNotFoundException)
-                    {
-                        Console.WriteLine(" Failed: The file specified in path was not found.");
+                        Console.WriteLine(" Failed: {0}.", ex.ToString());
                     }
                 }
 
@@ -88,7 +84,7 @@ Failed: {2}
 
                 foreach (MetaDataSet.FileRow row2 in table2)
                 {
-                    System.Console.Write("\"{0}\" (fileUniqueId = {1}) file is updating...", row2.Name, row2.FileUniqueId);
+                    Console.Write("\"{0}\" (fileUniqueId = {1}) file is updating...", row2.Name, row2.FileUniqueId);
 
                     string fileNameWithExtension = null;
                     long sizeInBytes = 0;
@@ -104,12 +100,19 @@ Failed: {2}
                             Console.WriteLine(" Failed: Checksum is empty.");
                         else
                         {
-                            row2.Checksum = checksum;
-                            adapter2.Update(row2);
+                            try
+                            {
+                                row2.Checksum = checksum;
+                                adapter2.Update(row2);
 
-                            successCount++;
+                                successCount++;
 
-                            Console.WriteLine(" Done.");
+                                Console.WriteLine(" Done.");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(" Failed: {0}.", ex.ToString());
+                            }
                         }
                     }
                     else
