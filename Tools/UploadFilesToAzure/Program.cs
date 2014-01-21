@@ -32,9 +32,12 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure
 
                 Guid departmentId = Guid.Empty;
                 string cacheControl = string.Format(CultureInfo.InvariantCulture, "public, max-age={0}", ConfigurationManager.AppSettings["mafs:ClientCacheExpiryTime"]);
+                int uploadSpeedLimit = Convert.ToInt32(ConfigurationManager.AppSettings["UploadSpeedLimit"]);
 
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["mafs:StorageConnectionString"]);
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                blobClient.ParallelOperationThreadCount = 1;
+                blobClient.SingleBlobUploadThresholdInBytes = uploadSpeedLimit;
                 CloudBlobContainer container = null;
 
                 foreach (MetaDataSet.FileRow row in table)
