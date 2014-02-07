@@ -281,8 +281,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             
             private global::System.Data.DataColumn columnFileUniqueId;
             
-            private global::System.Data.DataColumn columnOrganizationId;
-            
             private global::System.Data.DataColumn columnDepartmentId;
             
             private global::System.Data.DataColumn columnLocalObjectType;
@@ -290,18 +288,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             private global::System.Data.DataColumn columnLocalObjectId;
             
             private global::System.Data.DataColumn columnName;
-            
-            private global::System.Data.DataColumn columnSizeInBytes;
-            
-            private global::System.Data.DataColumn columnUpdatedTime;
-            
-            private global::System.Data.DataColumn columnUpdatedBy;
-            
-            private global::System.Data.DataColumn columnDeleted;
-            
-            private global::System.Data.DataColumn columnChecksum;
-            
-            private global::System.Data.DataColumn columnUploaded;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -346,14 +332,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn OrganizationIdColumn {
-                get {
-                    return this.columnOrganizationId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn DepartmentIdColumn {
                 get {
                     return this.columnDepartmentId;
@@ -381,54 +359,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             public global::System.Data.DataColumn NameColumn {
                 get {
                     return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SizeInBytesColumn {
-                get {
-                    return this.columnSizeInBytes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UpdatedTimeColumn {
-                get {
-                    return this.columnUpdatedTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UpdatedByColumn {
-                get {
-                    return this.columnUpdatedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DeletedColumn {
-                get {
-                    return this.columnDeleted;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChecksumColumn {
-                get {
-                    return this.columnChecksum;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UploadedColumn {
-                get {
-                    return this.columnUploaded;
                 }
             }
             
@@ -469,21 +399,14 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FileRow AddFileRow(string FileUniqueId, System.Guid OrganizationId, System.Guid DepartmentId, string LocalObjectType, string LocalObjectId, string Name, int SizeInBytes, System.DateTime UpdatedTime, string UpdatedBy, bool Deleted, string Checksum, bool Uploaded) {
+            public FileRow AddFileRow(string FileUniqueId, System.Guid DepartmentId, string LocalObjectType, string LocalObjectId, string Name) {
                 FileRow rowFileRow = ((FileRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FileUniqueId,
-                        OrganizationId,
                         DepartmentId,
                         LocalObjectType,
                         LocalObjectId,
-                        Name,
-                        SizeInBytes,
-                        UpdatedTime,
-                        UpdatedBy,
-                        Deleted,
-                        Checksum,
-                        Uploaded};
+                        Name};
                 rowFileRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFileRow);
                 return rowFileRow;
@@ -491,11 +414,9 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FileRow FindByFileUniqueIdOrganizationIdDepartmentId(string FileUniqueId, System.Guid OrganizationId, System.Guid DepartmentId) {
+            public FileRow FindByFileUniqueId(string FileUniqueId) {
                 return ((FileRow)(this.Rows.Find(new object[] {
-                            FileUniqueId,
-                            OrganizationId,
-                            DepartmentId})));
+                            FileUniqueId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -516,17 +437,10 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnFileUniqueId = base.Columns["FileUniqueId"];
-                this.columnOrganizationId = base.Columns["OrganizationId"];
                 this.columnDepartmentId = base.Columns["DepartmentId"];
                 this.columnLocalObjectType = base.Columns["LocalObjectType"];
                 this.columnLocalObjectId = base.Columns["LocalObjectId"];
                 this.columnName = base.Columns["Name"];
-                this.columnSizeInBytes = base.Columns["SizeInBytes"];
-                this.columnUpdatedTime = base.Columns["UpdatedTime"];
-                this.columnUpdatedBy = base.Columns["UpdatedBy"];
-                this.columnDeleted = base.Columns["Deleted"];
-                this.columnChecksum = base.Columns["Checksum"];
-                this.columnUploaded = base.Columns["Uploaded"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -534,8 +448,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             private void InitClass() {
                 this.columnFileUniqueId = new global::System.Data.DataColumn("FileUniqueId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFileUniqueId);
-                this.columnOrganizationId = new global::System.Data.DataColumn("OrganizationId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrganizationId);
                 this.columnDepartmentId = new global::System.Data.DataColumn("DepartmentId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartmentId);
                 this.columnLocalObjectType = new global::System.Data.DataColumn("LocalObjectType", typeof(string), null, global::System.Data.MappingType.Element);
@@ -544,25 +456,11 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
                 base.Columns.Add(this.columnLocalObjectId);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
-                this.columnSizeInBytes = new global::System.Data.DataColumn("SizeInBytes", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSizeInBytes);
-                this.columnUpdatedTime = new global::System.Data.DataColumn("UpdatedTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdatedTime);
-                this.columnUpdatedBy = new global::System.Data.DataColumn("UpdatedBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdatedBy);
-                this.columnDeleted = new global::System.Data.DataColumn("Deleted", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDeleted);
-                this.columnChecksum = new global::System.Data.DataColumn("Checksum", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChecksum);
-                this.columnUploaded = new global::System.Data.DataColumn("Uploaded", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUploaded);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnFileUniqueId,
-                                this.columnOrganizationId,
-                                this.columnDepartmentId}, true));
+                                this.columnFileUniqueId}, true));
                 this.columnFileUniqueId.AllowDBNull = false;
+                this.columnFileUniqueId.Unique = true;
                 this.columnFileUniqueId.MaxLength = 32;
-                this.columnOrganizationId.AllowDBNull = false;
                 this.columnDepartmentId.AllowDBNull = false;
                 this.columnLocalObjectType.AllowDBNull = false;
                 this.columnLocalObjectType.MaxLength = 50;
@@ -570,11 +468,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
                 this.columnLocalObjectId.MaxLength = 255;
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 255;
-                this.columnSizeInBytes.AllowDBNull = false;
-                this.columnUpdatedTime.AllowDBNull = false;
-                this.columnUpdatedBy.MaxLength = 255;
-                this.columnDeleted.AllowDBNull = false;
-                this.columnChecksum.MaxLength = 32;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -728,17 +621,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid OrganizationId {
-                get {
-                    return ((global::System.Guid)(this[this.tableFile.OrganizationIdColumn]));
-                }
-                set {
-                    this[this.tableFile.OrganizationIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid DepartmentId {
                 get {
                     return ((global::System.Guid)(this[this.tableFile.DepartmentIdColumn]));
@@ -779,123 +661,6 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure {
                 set {
                     this[this.tableFile.NameColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SizeInBytes {
-                get {
-                    return ((int)(this[this.tableFile.SizeInBytesColumn]));
-                }
-                set {
-                    this[this.tableFile.SizeInBytesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime UpdatedTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableFile.UpdatedTimeColumn]));
-                }
-                set {
-                    this[this.tableFile.UpdatedTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string UpdatedBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableFile.UpdatedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UpdatedBy\' in table \'File\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableFile.UpdatedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Deleted {
-                get {
-                    return ((bool)(this[this.tableFile.DeletedColumn]));
-                }
-                set {
-                    this[this.tableFile.DeletedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Checksum {
-                get {
-                    try {
-                        return ((string)(this[this.tableFile.ChecksumColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Checksum\' in table \'File\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableFile.ChecksumColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Uploaded {
-                get {
-                    try {
-                        return ((bool)(this[this.tableFile.UploadedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Uploaded\' in table \'File\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableFile.UploadedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUpdatedByNull() {
-                return this.IsNull(this.tableFile.UpdatedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUpdatedByNull() {
-                this[this.tableFile.UpdatedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsChecksumNull() {
-                return this.IsNull(this.tableFile.ChecksumColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetChecksumNull() {
-                this[this.tableFile.ChecksumColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUploadedNull() {
-                return this.IsNull(this.tableFile.UploadedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUploadedNull() {
-                this[this.tableFile.UploadedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1059,86 +824,11 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure.MetaDataSetTableAdapters 
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "File";
             tableMapping.ColumnMappings.Add("FileUniqueId", "FileUniqueId");
-            tableMapping.ColumnMappings.Add("OrganizationId", "OrganizationId");
             tableMapping.ColumnMappings.Add("DepartmentId", "DepartmentId");
             tableMapping.ColumnMappings.Add("LocalObjectType", "LocalObjectType");
             tableMapping.ColumnMappings.Add("LocalObjectId", "LocalObjectId");
             tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("SizeInBytes", "SizeInBytes");
-            tableMapping.ColumnMappings.Add("UpdatedTime", "UpdatedTime");
-            tableMapping.ColumnMappings.Add("UpdatedBy", "UpdatedBy");
-            tableMapping.ColumnMappings.Add("Deleted", "Deleted");
-            tableMapping.ColumnMappings.Add("Checksum", "Checksum");
-            tableMapping.ColumnMappings.Add("Uploaded", "Uploaded");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Mfs_File] WHERE (([FileUniqueId] = @Original_FileUniqueId) AND ([OrganizationId] = @Original_OrganizationId) AND ([DepartmentId] = @Original_DepartmentId) AND ([LocalObjectType] = @Original_LocalObjectType) AND ([LocalObjectId] = @Original_LocalObjectId) AND ([Name] = @Original_Name) AND ([SizeInBytes] = @Original_SizeInBytes) AND ([UpdatedTime] = @Original_UpdatedTime) AND ((@IsNull_UpdatedBy = 1 AND [UpdatedBy] IS NULL) OR ([UpdatedBy] = @Original_UpdatedBy)) AND ([Deleted] = @Original_Deleted) AND ((@IsNull_Checksum = 1 AND [Checksum] IS NULL) OR ([Checksum] = @Original_Checksum)) AND ((@IsNull_Uploaded = 1 AND [Uploaded] IS NULL) OR ([Uploaded] = @Original_Uploaded)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileUniqueId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrganizationId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrganizationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepartmentId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocalObjectType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocalObjectId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SizeInBytes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SizeInBytes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdatedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Checksum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checksum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Checksum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checksum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Uploaded", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Uploaded", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Mfs_File] ([FileUniqueId], [OrganizationId], [DepartmentId], [LocalObjectType], [LocalObjectId], [Name], [SizeInBytes], [UpdatedTime], [UpdatedBy], [Deleted], [Checksum], [Uploaded]) VALUES (@FileUniqueId, @OrganizationId, @DepartmentId, @LocalObjectType, @LocalObjectId, @Name, @SizeInBytes, @UpdatedTime, @UpdatedBy, @Deleted, @Checksum, @Uploaded);
-SELECT FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted, Checksum, Uploaded FROM Mfs_File WHERE (DepartmentId = @DepartmentId) AND (FileUniqueId = @FileUniqueId) AND (OrganizationId = @OrganizationId) ORDER BY DepartmentId, Name";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileUniqueId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrganizationId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrganizationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocalObjectType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocalObjectId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SizeInBytes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SizeInBytes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Checksum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checksum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Uploaded", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Mfs_File] SET [FileUniqueId] = @FileUniqueId, [OrganizationId] = @OrganizationId, [DepartmentId] = @DepartmentId, [LocalObjectType] = @LocalObjectType, [LocalObjectId] = @LocalObjectId, [Name] = @Name, [SizeInBytes] = @SizeInBytes, [UpdatedTime] = @UpdatedTime, [UpdatedBy] = @UpdatedBy, [Deleted] = @Deleted, [Checksum] = @Checksum, [Uploaded] = @Uploaded WHERE (([FileUniqueId] = @Original_FileUniqueId) AND ([OrganizationId] = @Original_OrganizationId) AND ([DepartmentId] = @Original_DepartmentId) AND ([LocalObjectType] = @Original_LocalObjectType) AND ([LocalObjectId] = @Original_LocalObjectId) AND ([Name] = @Original_Name) AND ([SizeInBytes] = @Original_SizeInBytes) AND ([UpdatedTime] = @Original_UpdatedTime) AND ((@IsNull_UpdatedBy = 1 AND [UpdatedBy] IS NULL) OR ([UpdatedBy] = @Original_UpdatedBy)) AND ([Deleted] = @Original_Deleted) AND ((@IsNull_Checksum = 1 AND [Checksum] IS NULL) OR ([Checksum] = @Original_Checksum)) AND ((@IsNull_Uploaded = 1 AND [Uploaded] IS NULL) OR ([Uploaded] = @Original_Uploaded)));
-SELECT FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted, Checksum, Uploaded FROM Mfs_File WHERE (DepartmentId = @DepartmentId) AND (FileUniqueId = @FileUniqueId) AND (OrganizationId = @OrganizationId) ORDER BY DepartmentId, Name";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileUniqueId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrganizationId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrganizationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocalObjectType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocalObjectId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SizeInBytes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SizeInBytes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Checksum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checksum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Uploaded", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileUniqueId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrganizationId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrganizationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DepartmentId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocalObjectType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocalObjectId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocalObjectId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SizeInBytes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SizeInBytes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdatedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Deleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Checksum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checksum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Checksum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Checksum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Uploaded", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Uploaded", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1154,18 +844,17 @@ SELECT FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectI
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted, Checksum, Uploaded
-FROM            Mfs_File
-WHERE        (ISNULL(Uploaded, 0) = 0) AND (Deleted = 0)
-ORDER BY DepartmentId, Name";
+            this._commandCollection[0].CommandText = "SELECT TOP (1000) FileUniqueId, DepartmentId, LocalObjectType, LocalObjectId, Nam" +
+                "e FROM Mfs_File WHERE (Deleted = 0) AND (UploadStatus IS NULL) ORDER BY Departme" +
+                "ntId, Name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "UPDATE       Mfs_File\r\nSET                Uploaded = @Uploaded\r\nWHERE        (Fil" +
-                "eUniqueId = @FileUniqueId)";
+            this._commandCollection[1].CommandText = "UPDATE       Mfs_File\r\nSET                UploadStatus = @UploadStatus\r\nWHERE    " +
+                "    (FileUniqueId = @FileUniqueId)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Uploaded", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Uploaded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileUniqueId", global::System.Data.SqlDbType.NVarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "FileUniqueId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UploadStatus", global::System.Data.SqlDbType.Int, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "UploadStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1182,48 +871,19 @@ ORDER BY DepartmentId, Name";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MetaDataSet.FileDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MetaDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "File");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object UpdateUploaded(global::System.Nullable<bool> Uploaded, string FileUniqueId) {
+        public virtual object UpdateUploadStatus(string FileUniqueId, global::System.Nullable<int> UploadStatus) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((Uploaded.HasValue == true)) {
-                command.Parameters[0].Value = ((bool)(Uploaded.Value));
-            }
-            else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
             if ((FileUniqueId == null)) {
                 throw new global::System.ArgumentNullException("FileUniqueId");
             }
             else {
-                command.Parameters[1].Value = ((string)(FileUniqueId));
+                command.Parameters[0].Value = ((string)(FileUniqueId));
+            }
+            if ((UploadStatus.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(UploadStatus.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1261,8 +921,6 @@ ORDER BY DepartmentId, Name";
         
         private UpdateOrderOption _updateOrder;
         
-        private FileTableAdapter _fileTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1275,20 +933,6 @@ ORDER BY DepartmentId, Name";
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public FileTableAdapter FileTableAdapter {
-            get {
-                return this._fileTableAdapter;
-            }
-            set {
-                this._fileTableAdapter = value;
             }
         }
         
@@ -1311,10 +955,6 @@ ORDER BY DepartmentId, Name";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._fileTableAdapter != null) 
-                            && (this._fileTableAdapter.Connection != null))) {
-                    return this._fileTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1328,9 +968,6 @@ ORDER BY DepartmentId, Name";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._fileTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1342,15 +979,6 @@ ORDER BY DepartmentId, Name";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(MetaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._fileTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.File.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._fileTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1361,14 +989,6 @@ ORDER BY DepartmentId, Name";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(MetaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._fileTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.File.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._fileTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1379,14 +999,6 @@ ORDER BY DepartmentId, Name";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(MetaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._fileTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.File.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._fileTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1426,11 +1038,6 @@ ORDER BY DepartmentId, Name";
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._fileTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._fileTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -1463,15 +1070,6 @@ ORDER BY DepartmentId, Name";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._fileTableAdapter != null)) {
-                    revertConnections.Add(this._fileTableAdapter, this._fileTableAdapter.Connection);
-                    this._fileTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._fileTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._fileTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._fileTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._fileTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1529,10 +1127,6 @@ ORDER BY DepartmentId, Name";
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._fileTableAdapter != null)) {
-                    this._fileTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._fileTableAdapter]));
-                    this._fileTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

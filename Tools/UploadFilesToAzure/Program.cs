@@ -27,62 +27,77 @@ namespace Micajah.FileService.Tools.UploadFilesToAzure
                 client = new FileMtomServiceSoapClient();
                 adapter = new FileTableAdapter();
 
-                table = adapter.GetFiles();
-                totalCount = table.Count;
-
-                Guid departmentId = Guid.Empty;
                 string cacheControl = string.Format(CultureInfo.InvariantCulture, "public, max-age={0}", ConfigurationManager.AppSettings["mafs:ClientCacheExpiryTime"]);
                 int uploadSpeedLimit = Convert.ToInt32(ConfigurationManager.AppSettings["UploadSpeedLimit"]);
+                int parallelOperationThreadCount = Convert.ToInt32(ConfigurationManager.AppSettings["ParallelOperationThreadCount"]);
+                string storageConnectionString = ConfigurationManager.AppSettings["mafs:StorageConnectionString"];
 
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["mafs:StorageConnectionString"]);
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-                blobClient.ParallelOperationThreadCount = 1;
+                blobClient.ParallelOperationThreadCount = parallelOperationThreadCount;
                 blobClient.SingleBlobUploadThresholdInBytes = uploadSpeedLimit;
+
                 CloudBlobContainer container = null;
+                Guid departmentId = Guid.Empty;
+                int fileIndex = 0;
+                int rowsCount = 0;
 
-                foreach (MetaDataSet.FileRow row in table)
+                table = adapter.GetFiles();
+                rowsCount = table.Count;
+
+                while (rowsCount > 0)
                 {
-                    try
+                    totalCount += rowsCount;
+
+                    foreach (MetaDataSet.FileRow row in table)
                     {
-                        Console.WriteLine("File \"{0}\" (fileUniqueId = {1}).", row.Name, row.FileUniqueId);
+                        int uploadStatus = 0; // 0 - Failed, 1 - Success, NULL - Not processed.
+                        fileIndex++;
 
-                        Console.Write("Getting from File Service...");
-
-                        GetFileResponse fileResponse = client.GetFile(row.FileUniqueId);
-
-                        Console.Write(" Done. ");
-
-                        Console.Write("Uploading to Azure...");
-
-                        if (row.DepartmentId != departmentId)
+                        try
                         {
-                            container = blobClient.GetContainerReference(row.DepartmentId.ToString("N"));
-                            container.CreateIfNotExists();
+                            Console.WriteLine("File #{0} \"{1}\" (fileUniqueId = {2}).", fileIndex, row.Name, row.FileUniqueId);
+                            Console.Write("Getting from File Service...");
 
-                            departmentId = row.DepartmentId;
+                            GetFileResponse fileResponse = client.GetFile(row.FileUniqueId);
+
+                            Console.Write(" Done. ");
+                            Console.Write("Uploading to Azure...");
+
+                            if (row.DepartmentId != departmentId)
+                            {
+                                container = blobClient.GetContainerReference(row.DepartmentId.ToString("N"));
+                                container.CreateIfNotExists();
+
+                                departmentId = row.DepartmentId;
+                            }
+
+                            string blobName = string.Format(CultureInfo.InvariantCulture, "{0}/{1}/{2}", row.LocalObjectType, row.LocalObjectId, row.Name);
+                            string mimeType = System.Web.MimeMapping.GetMimeMapping(row.Name);
+
+                            using (Stream stream = new MemoryStream(fileResponse.fileData))
+                            {
+                                CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+                                blob.Properties.ContentType = mimeType;
+                                blob.Properties.CacheControl = cacheControl;
+                                blob.UploadFromStream(stream);
+                            }
+
+                            uploadStatus = 1;
+                            successCount++;
+
+                            Console.WriteLine(" Done.\r\n");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(" Failed.\r\n{0}\r\n", ex.ToString());
                         }
 
-                        string blobName = string.Format(CultureInfo.InvariantCulture, "{0}/{1}/{2}", row.LocalObjectType, row.LocalObjectId, row.Name);
-                        string mimeType = System.Web.MimeMapping.GetMimeMapping(row.Name);
-
-                        using (Stream stream = new MemoryStream(fileResponse.fileData))
-                        {
-                            CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-                            blob.Properties.ContentType = mimeType;
-                            blob.Properties.CacheControl = cacheControl;
-                            blob.UploadFromStream(stream);
-                        }
-
-                        adapter.UpdateUploaded(true, row.FileUniqueId);
-
-                        Console.WriteLine(" Done.\r\n");
-
-                        successCount++;
+                        adapter.UpdateUploadStatus(row.FileUniqueId, uploadStatus);
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(" Failed.\r\n{0}\r\n", ex.ToString());
-                    }
+
+                    table = adapter.GetFiles();
+                    rowsCount = table.Count;
                 }
 
                 Console.WriteLine(@"
