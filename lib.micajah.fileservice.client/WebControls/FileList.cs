@@ -286,7 +286,7 @@ namespace Micajah.FileService.WebControls
                 table["ConnectionString"] = this.ConnectionString;
 
                 return ResourceVirtualPathProvider.VirtualPathToAbsolute(ResourceVirtualPathProvider.VirtualRootShortPath + "FileList.aspx")
-                    + "?p=" + HttpUtility.UrlEncodeUnicode(SimpleUpload.Serialize(table));
+                    + "?p=" + HttpUtility.UrlEncode(SimpleUpload.Serialize(table));
             }
         }
 

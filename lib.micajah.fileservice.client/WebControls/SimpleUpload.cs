@@ -127,7 +127,7 @@ namespace Micajah.FileService.WebControls
                 table["SessionId"] = this.SessionId;
 
                 return ResourceVirtualPathProvider.VirtualPathToAbsolute(ResourceVirtualPathProvider.VirtualRootShortPath + "SimpleUpload.aspx")
-                    + "?p=" + HttpUtility.UrlEncodeUnicode(Serialize(table));
+                    + "?p=" + HttpUtility.UrlEncode(Serialize(table));
             }
         }
 
@@ -143,7 +143,7 @@ namespace Micajah.FileService.WebControls
                 objs[4] = this.DepartmentName;
                 objs[5] = this.SessionId;
                 objs[6] = Settings.Default.LinksExpiration;
-                return Settings.Default.FilePageUrl + "?P=" + HttpUtility.UrlEncodeUnicode(Serialize(objs));
+                return Settings.Default.FilePageUrl + "?P=" + HttpUtility.UrlEncode(Serialize(objs));
             }
         }
 

@@ -650,7 +650,7 @@ namespace Micajah.FileService.Client
                     string hash = Convert.ToBase64String(sha.ComputeHash(Encoding.Unicode.GetBytes(string.Format(CultureInfo.InvariantCulture, "{0},{1},{2},{3},{4},{5}"
                         , Settings.Default.ApplicationId, organizationId, departmentId, fileUniqueId, ticks, expirationTimeout))));
 
-                    sb.AppendFormat(CultureInfo.InvariantCulture, "&E={0}.{1}&H={2}", ticks, expirationTimeout, HttpUtility.UrlEncodeUnicode(hash));
+                    sb.AppendFormat(CultureInfo.InvariantCulture, "&E={0}.{1}&H={2}", ticks, expirationTimeout, HttpUtility.UrlEncode(hash));
                 }
             }
             if (download) sb.Append("&D=1");

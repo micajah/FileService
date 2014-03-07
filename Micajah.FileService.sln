@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dal.micajah.fileservice", "dal.micajah.fileservice\dal.micajah.fileservice.csproj", "{465FD412-936C-4E08-808E-72B3D5E97605}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib.micajah.fileservice.client", "lib.micajah.fileservice.client\lib.micajah.fileservice.client.csproj", "{F288F4C6-1D31-4A9D-A731-89749F7EFA47}"
@@ -28,6 +30,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice", "
 		Release.AspNetCompiler.FixedNames = "true"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1572"
+		SlnRelativePath = "web.micajah.fileservice\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.client", "web.micajah.fileservice.client\", "{B9D8527F-BE40-4E98-984D-DB10E6F580DC}"
@@ -36,7 +39,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.cli
 		SccAuxPath = ""
 		SccLocalPath = ""
 		SccProvider = ""
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		ProjectReferences = "{F288F4C6-1D31-4A9D-A731-89749F7EFA47}|Micajah.FileService.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/web.micajah.fileservice.client"
 		Debug.AspNetCompiler.PhysicalPath = "web.micajah.fileservice.client\"
@@ -53,6 +56,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web.micajah.fileservice.cli
 		Release.AspNetCompiler.FixedNames = "true"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1573"
+		SlnRelativePath = "web.micajah.fileservice.client\"
 	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "db.micajah.fileservice", "db.micajah.fileservice\db.micajah.fileservice.sqlproj", "{55BEAD17-9970-474A-93B6-5BE8DDE26A23}"

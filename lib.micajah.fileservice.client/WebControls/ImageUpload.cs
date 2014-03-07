@@ -149,7 +149,7 @@ namespace Micajah.FileService.WebControls
                 table["DepartmentName"] = this.DepartmentName;
 
                 return ResourceVirtualPathProvider.VirtualPathToAbsolute(ResourceVirtualPathProvider.VirtualRootShortPath + "ImageUpload.aspx")
-                    + "?p=" + HttpUtility.UrlEncodeUnicode(SimpleUpload.Serialize(table));
+                    + "?p=" + HttpUtility.UrlEncode(SimpleUpload.Serialize(table));
             }
         }
 
