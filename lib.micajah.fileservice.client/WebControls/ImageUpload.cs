@@ -677,7 +677,7 @@ namespace Micajah.FileService.WebControls
                                 uniqueId = Access.PutFileFromUrl(Settings.Default.ApplicationId.ToString()
                                     , this.OrganizationName, ref organizationGuidString
                                     , this.DepartmentName, ref departmentGuidString
-                                    , url, ref checksum);
+                                    , url, this.ExpirationRequired, ref checksum);
                                 if (!Access.StringIsFileUniqueId(uniqueId)) m_ErrorMessage = uniqueId;
                             }
                             else
