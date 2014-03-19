@@ -403,6 +403,22 @@ namespace Micajah.FileService.WebControls
             set { this.ViewState["ConnectionString"] = value; }
         }
 
+        /// <summary>
+        /// Gets or set a value indicating whether the expiration required for the link to the uploaded file.
+        /// </summary>
+        [Category("Data")]
+        [Description("Whether the expiration required for the link to the uploaded file.")]
+        [DefaultValue(true)]
+        public bool ExpirationRequired
+        {
+            get
+            {
+                object obj = ViewState["ExpirationRequired"];
+                return ((obj == null) ? Settings.Default.LinksExpiration : (bool)obj);
+            }
+            set { ViewState["ExpirationRequired"] = value; }
+        }
+
         #endregion
 
         #region Private Methods
@@ -632,7 +648,7 @@ namespace Micajah.FileService.WebControls
                                     uniqueId = Access.PutFileAsByteArray(Settings.Default.ApplicationId.ToString()
                                         , this.OrganizationName, ref organizationGuidString
                                         , this.DepartmentName, ref departmentGuidString
-                                        , file.FileName, ref bytes, ref checksum);
+                                        , file.FileName, ref bytes, this.ExpirationRequired, ref checksum);
                                     if (!Access.StringIsFileUniqueId(uniqueId)) m_ErrorMessage = uniqueId;
                                 }
                                 else
