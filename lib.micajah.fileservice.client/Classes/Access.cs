@@ -639,9 +639,23 @@ namespace Micajah.FileService.Client
         /// <returns>The string that contains the URL to the file.</returns>
         public static string GetFileUrl(string fileUniqueId, Guid organizationId, Guid departmentId, bool download)
         {
+            return GetFileUrl(fileUniqueId, organizationId, departmentId, download, Settings.Default.LinksExpiration);
+        }
+
+        /// <summary>
+        /// Returns the URL to the file.
+        /// </summary>
+        /// <param name="fileUniqueId">The unique identifier of the file.</param>
+        /// <param name="organizationId">The organization's identifier that the file is belong to.</param>
+        /// <param name="departmentId">The department's identifier that the file is belong to.</param>
+        /// <param name="download">The value indicating the URL is for download the file.</param>
+        /// <param name="expirationRequired">The value indicating whether the expiration required for the link to the file.</param>
+        /// <returns>The string that contains the URL to the file.</returns>
+        public static string GetFileUrl(string fileUniqueId, Guid organizationId, Guid departmentId, bool download, bool expirationRequired)
+        {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(CultureInfo.InvariantCulture, "{0}?FileId={1}", Settings.Default.FilePageUrl, fileUniqueId);
-            if (Settings.Default.LinksExpiration)
+            if (expirationRequired)
             {
                 int expirationTimeout = Settings.Default.LinksExpirationTimeout;
                 using (SHA256Managed sha = new SHA256Managed())
@@ -699,7 +713,23 @@ namespace Micajah.FileService.Client
         /// <returns>The string that contains the URL to the thumbnail of the picture.</returns>
         public static string GetThumbnailUrl(string fileUniqueId, Guid organizationId, Guid departmentId, int width, int height, int align, bool download)
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0}&Width={1}&Height={2}&Align={3}", GetFileUrl(fileUniqueId, organizationId, departmentId, download), width, height, align);
+            return GetThumbnailUrl(fileUniqueId, organizationId, departmentId, width, height, align, download, Settings.Default.LinksExpiration);
+        }
+
+        /// <summary>
+        /// Returns the URL to the thumbnail of the picture.
+        /// </summary>
+        /// <param name="fileUniqueId">The unique identifier of the picture file.</param>
+        /// <param name="organizationId">The organization's identifier that the file is belong to.</param>
+        /// <param name="departmentId">The department's identifier that the file is belong to.</param>
+        /// <param name="width">The width of the thumbnail.</param>
+        /// <param name="height">The height of the thumbnail.</param>
+        /// <param name="align">Specifies the align of the original picture in the thumbnail. The possible values are 1-9.</param>
+        /// <param name="download">The value indicating the URL is for download the file.</param>
+        /// <returns>The string that contains the URL to the thumbnail of the picture.</returns>
+        public static string GetThumbnailUrl(string fileUniqueId, Guid organizationId, Guid departmentId, int width, int height, int align, bool download, bool expirationRequired)
+        {
+            return string.Format(CultureInfo.InvariantCulture, "{0}&Width={1}&Height={2}&Align={3}", GetFileUrl(fileUniqueId, organizationId, departmentId, download, expirationRequired), width, height, align);
         }
 
         /// <summary>
