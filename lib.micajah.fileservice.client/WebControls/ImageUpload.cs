@@ -496,7 +496,7 @@ namespace Micajah.FileService.WebControls
                 DeleteButton.CssClass = "iuRemove";
                 DeleteButton.Style[HtmlTextWriterStyle.Display] = "none";
                 DeleteButton.Text = Resources.FileList_DeleteText;
-                DeleteButton.NavigateUrl = "#";
+                DeleteButton.NavigateUrl = "javascript:void(0);";
                 UploadedImageViewPanel.Controls.Add(DeleteButton);
             }
 
@@ -518,7 +518,7 @@ namespace Micajah.FileService.WebControls
 
             ClosePopupWindowButton = new HyperLink();
             ClosePopupWindowButton.ID = "ClosePopupWindowButton";
-            ClosePopupWindowButton.NavigateUrl = "#";
+            ClosePopupWindowButton.NavigateUrl = "javascript:void(0);";
             ClosePopupWindowButton.CssClass = "iuCloseButton";
             ClosePopupWindowButton.Style[HtmlTextWriterStyle.Display] = "none";
             ClosePopupWindowButton.Text = Resources.ImageUpload_ClosePopupWindowButton_Text;
@@ -534,7 +534,7 @@ namespace Micajah.FileService.WebControls
         {
             OpenLink = new HyperLink();
             OpenLink.ID = "OpenLink";
-            OpenLink.NavigateUrl = "#";
+            OpenLink.NavigateUrl = "javascript:void(0);";
             OpenLink.ToolTip = Resources.ImageUpload_OpenLink_ToolTip;
             OpenLink.Style[HtmlTextWriterStyle.Cursor] = "pointer";
             this.Controls.Add(OpenLink);

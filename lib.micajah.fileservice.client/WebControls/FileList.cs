@@ -1033,7 +1033,7 @@ namespace Micajah.FileService.WebControls
                 ViewAllAtOnceLink.CssClass = "flCptCtrl";
                 ViewAllAtOnceLink.Text = Resources.FileList_ViewAllAtOnceLink_Text;
                 ViewAllAtOnceLink.Target = "_blank";
-                ViewAllAtOnceLink.NavigateUrl = "#";
+                ViewAllAtOnceLink.NavigateUrl = "javascript:void(0);";
 
                 if (this.RenderingMode == FileListRenderingMode.CommonGridView)
                     CaptionPanel.Controls.Add(ViewAllAtOnceLink);

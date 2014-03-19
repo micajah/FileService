@@ -850,7 +850,7 @@ namespace Micajah.FileService.WebControls
         {
             OpenLink = new HyperLink();
             OpenLink.ID = "OpenLink";
-            OpenLink.NavigateUrl = "#";
+            OpenLink.NavigateUrl = "javascript:void(0);";
             OpenLink.Text = Resources.SimpleUpload_OpenLink_Text;
             this.Controls.Add(OpenLink);
 
