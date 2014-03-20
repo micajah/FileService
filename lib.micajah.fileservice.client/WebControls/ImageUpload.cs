@@ -819,7 +819,7 @@ namespace Micajah.FileService.WebControls
                     base.ControlStyle.Reset();
                 }
                 if (PopupWindow != null) PopupWindow.NavigateUrl = this.PopupWindowNavigateUrl;
-                UploadedImage.ImageUrl = (string.IsNullOrEmpty(CurrentFileField.Value) ? string.Empty : Access.GetThumbnailUrl(CurrentFileField.Value, this.OrganizationId, this.DepartmentId, 130, 130));
+                UploadedImage.ImageUrl = (string.IsNullOrEmpty(CurrentFileField.Value) ? string.Empty : Access.GetThumbnailUrl(CurrentFileField.Value, this.OrganizationId, this.DepartmentId, 130, 130, 0, false, this.ExpirationRequired));
                 base.CssClass = "iuContainer";
                 base.RenderControl(writer);
             }

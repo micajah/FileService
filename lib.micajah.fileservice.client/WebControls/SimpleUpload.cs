@@ -950,7 +950,7 @@ namespace Micajah.FileService.WebControls
             foreach (MetaDataSet.FileRow file in this.FilesMetaData)
             {
                 if (!deletedFiles.Contains(file.FileUniqueId))
-                    sb.AppendFormat("|{0}*{1}*{2}", file.FileUniqueId, file.Name, Access.GetFileUrl(file.FileUniqueId, this.OrganizationId, this.DepartmentId));
+                    sb.AppendFormat("|{0}*{1}*{2}", file.FileUniqueId, file.Name, Access.GetFileUrl(file.FileUniqueId, this.OrganizationId, this.DepartmentId, false, this.ExpirationRequired));
             }
 
             if (sb.Length > 0)
