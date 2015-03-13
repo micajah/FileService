@@ -223,9 +223,9 @@ namespace Micajah.FileService.WebService
                 context.Response.ContentType = fileMimeType;
 
                 string contentDisposition = string.Empty;
-                if (context.Request.Browser.IsBrowser("IE") || context.Request.UserAgent.Contains("Chrome"))
+                if (context.Request.Browser.IsBrowser("IE") || (context.Request.UserAgent != null && context.Request.UserAgent.Contains("Chrome")))
                     contentDisposition = "filename=\"" + FileManager.ToHexString(fileNameWithExtension) + "\";";
-                else if (context.Request.UserAgent.Contains("Safari"))
+                else if ((context.Request.UserAgent != null && context.Request.UserAgent.Contains("Safari")))
                     contentDisposition = "filename=\"" + fileNameWithExtension + "\";";
                 else
                     contentDisposition = "filename*=utf-8''" + HttpUtility.UrlPathEncode(fileNameWithExtension) + ";";
