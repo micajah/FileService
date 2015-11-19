@@ -24,3 +24,7 @@
     CONSTRAINT [FK_File_Storage] FOREIGN KEY ([StorageGuid]) REFERENCES [dbo].[Storage] ([StorageGuid])
 );
 
+
+GO
+
+CREATE INDEX [IX_File_ParentFileUniqueId] ON [dbo].[File] ([ParentFileUniqueId])
