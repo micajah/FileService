@@ -11,7 +11,7 @@ BEGIN
 
 	SELECT @FileSize = SizeInBytes 
 	FROM dbo.[File] 
-	WHERE (@FileUniqueId = @FileUniqueId) AND (Deleted = 0);
+	WHERE (FileUniqueId = @FileUniqueId) AND (Deleted = 0);
 
 	If (ISNULL(@FileSize, 0) <= 0) RETURN;
 
