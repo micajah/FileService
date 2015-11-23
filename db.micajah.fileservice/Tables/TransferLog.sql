@@ -12,3 +12,6 @@
 GO
 
 CREATE INDEX [IX_TransferLog_FileUniqueId] ON [dbo].[TransferLog] ([FileUniqueId] ASC)
+GO
+
+CREATE INDEX [IX_TransferLog_FileUniqueId_SizeInBytes_IsDownload_MonthAudit] ON [dbo].[TransferLog] ([FileUniqueId], [SizeInBytes], [IsDownload], [MonthAudit])
