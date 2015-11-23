@@ -9,3 +9,6 @@
     CONSTRAINT [FK_TransferLog_File] FOREIGN KEY ([FileUniqueId]) REFERENCES [dbo].[File] ([FileUniqueId])
 );
 
+GO
+
+CREATE INDEX [IX_TransferLog_FileUniqueId] ON [dbo].[TransferLog] ([FileUniqueId] ASC)
