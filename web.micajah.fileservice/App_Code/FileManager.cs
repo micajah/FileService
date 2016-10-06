@@ -1,6 +1,8 @@
 using Micajah.FileService.Dal;
 using Micajah.FileService.Dal.MainDataSetTableAdapters;
 using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Net;
@@ -122,6 +124,10 @@ namespace Micajah.FileService.WebService
                             height = swfFileInfo.Height;
                         }
                     }
+                    else if (MimeType.IsImageType(fileMimeType))
+                    {
+                        RotateFlipImageByOrientation(destinationFileName, fileMimeType);
+                    }
 
                     checksum = CalculateChecksum(destinationFileName);
 
@@ -217,6 +223,30 @@ namespace Micajah.FileService.WebService
                     return false;
             }
             return true;
+        }
+
+        private static void RotateFlipImageByOrientation(string fileName, string mimeType)
+        {
+            Image image = null;
+
+            try
+            {
+                image = Bitmap.FromFile(fileName);
+
+                if (image.RotateFlipByOrientation())
+                {
+                    ImageFormat imageFormat = MimeType.GetImageFormat(mimeType) ?? ImageFormat.Jpeg;
+
+                    image.Save(fileName, imageFormat);
+                }
+            }
+            finally
+            {
+                if (image != null)
+                {
+                    image.Dispose();
+                }
+            }
         }
 
         #endregion
@@ -792,6 +822,10 @@ namespace Micajah.FileService.WebService
                             width = swfFileInfo.Width;
                             height = swfFileInfo.Height;
                         }
+                    }
+                    else if (MimeType.IsImageType(fileMimeType))
+                    {
+                        RotateFlipImageByOrientation(destinationFileName, fileMimeType);
                     }
 
                     checksum = CalculateChecksum(destinationFileName);

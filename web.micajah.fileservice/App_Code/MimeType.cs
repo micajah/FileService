@@ -1,4 +1,6 @@
 using System;
+using System.Drawing.Imaging;
+using System.Linq;
 
 namespace Micajah.FileService.WebService
 {
@@ -389,6 +391,23 @@ namespace Micajah.FileService.WebService
                     return "application/onenote";
             }
             return Text;
+        }
+
+        /// <summary>
+        /// Returns image format associated to the specified MIME type.
+        /// </summary>
+        /// <param name="mimeType">The string that contains the MIME type.</param>
+        /// <returns>An image format, if it is found; otherwise null reference.</returns>
+        public static ImageFormat GetImageFormat(string mimeType)
+        {
+            ImageCodecInfo[] imageCodecs = ImageCodecInfo.GetImageEncoders();
+            ImageCodecInfo imageCodec = imageCodecs.First(codec => codec.MimeType == mimeType);
+            if (imageCodec != null)
+            {
+                return new ImageFormat(imageCodec.FormatID);
+            }
+
+            return null;
         }
 
         #endregion
