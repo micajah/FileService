@@ -61,7 +61,7 @@ BEGIN
 	FROM (	SELECT  
 				StorageGuid
 				, [Path]
-				, (	ISNULL(MaxSizeInMB, 229376) -- Max available space on the HDD for the file storages.
+				, (	ISNULL(MaxSizeInMB, 330752) -- Max available space on the HDD for the file storages.
 					- (CASE WHEN CurrentSizeInBytes IS NULL THEN 0 ELSE (CONVERT(numeric(18,4), CurrentSizeInBytes) / 1048576) END) 
 					- @SizeInMB
 					) AS NextFreeSpaceInMB
