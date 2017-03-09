@@ -31,3 +31,5 @@ _ReSharper*/
 *.dbmdl
 /web.micajah.fileservice/{12BE3DE3-6F7F-4796-85F8-B4EA77A8C5EB}/
 /[Pp]ublish/
+*.jfm
+/.vs
