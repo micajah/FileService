@@ -566,7 +566,6 @@ namespace Micajah.FileService.Tools.CopyFilesToFolder {
                 this.columnDepartmentId.AllowDBNull = false;
                 this.columnLocalObjectType.AllowDBNull = false;
                 this.columnLocalObjectType.MaxLength = 50;
-                this.columnLocalObjectId.AllowDBNull = false;
                 this.columnLocalObjectId.MaxLength = 255;
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 255;
@@ -763,7 +762,12 @@ namespace Micajah.FileService.Tools.CopyFilesToFolder {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string LocalObjectId {
                 get {
-                    return ((string)(this[this.tableFile.LocalObjectIdColumn]));
+                    try {
+                        return ((string)(this[this.tableFile.LocalObjectIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LocalObjectId\' in table \'File\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFile.LocalObjectIdColumn] = value;
@@ -860,6 +864,18 @@ namespace Micajah.FileService.Tools.CopyFilesToFolder {
                 set {
                     this[this.tableFile.UploadStatusColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLocalObjectIdNull() {
+                return this.IsNull(this.tableFile.LocalObjectIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLocalObjectIdNull() {
+                this[this.tableFile.LocalObjectIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1086,9 +1102,12 @@ namespace Micajah.FileService.Tools.CopyFilesToFolder.MetaDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT FileUniqueId, OrganizationId, DepartmentId, LocalObjectType, LocalObjectId, Name, SizeInBytes, UpdatedTime, UpdatedBy, Deleted, Checksum, UploadStatus 
-FROM dbo.Mfs_File
-WHERE OrganizationId = @OrganizationId AND DepartmentId = @DepartmentId AND Deleted = 0 AND (LEN(ISNULL(@LocalObjectType, '')) = 0 OR ',' + @LocalObjectType + ',' LIKE '%,' + LocalObjectType + ',%')";
+            this._commandCollection[0].CommandText = @"SELECT        f.FileUniqueId, f.OrganizationId, f.DepartmentId, f.LocalObjectType, CASE WHEN f.LocalObjectType = 'tickets-tickets-files' THEN CAST(t .TicketNumber AS nvarchar(255)) ELSE f.LocalObjectId END AS LocalObjectId, f.Name, 
+                         f.SizeInBytes, f.UpdatedTime, f.UpdatedBy, f.Deleted, f.Checksum, f.UploadStatus
+FROM            Mfs_File AS f LEFT OUTER JOIN
+                         tbl_ticket AS t ON f.LocalObjectId = CAST(t.Id AS nvarchar(255)) AND f.LocalObjectType = 'tickets-tickets-files'
+WHERE        (f.OrganizationId = @OrganizationId) AND (f.DepartmentId = @DepartmentId) AND (f.Deleted = 0) AND (LEN(ISNULL(@LocalObjectType, '')) = 0) OR
+                         (f.OrganizationId = @OrganizationId) AND (f.DepartmentId = @DepartmentId) AND (f.Deleted = 0) AND (',' + @LocalObjectType + ',' LIKE '%,' + f.LocalObjectType + ',%')";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrganizationId", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "OrganizationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepartmentId", global::System.Data.SqlDbType.UniqueIdentifier, 16, global::System.Data.ParameterDirection.Input, 0, 0, "DepartmentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1104,7 +1123,7 @@ WHERE OrganizationId = @OrganizationId AND DepartmentId = @DepartmentId AND Dele
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.Guid)(OrganizationId));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.Guid)(DepartmentId));
             if ((LocalObjectType == null)) {
-                throw new global::System.ArgumentNullException("LocalObjectType");
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(LocalObjectType));
