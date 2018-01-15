@@ -38,7 +38,7 @@ namespace Micajah.FileService.Tools.CopyFilesToFolder
             {
                 adapter = new FileTableAdapter();
 
-                table = adapter.GetFiles(Settings.Default.OrganizationId, Settings.Default.DepartmentId, Settings.Default.LocalObjectTypes);
+                table = adapter.GetFiles(Settings.Default.DepartmentId, Settings.Default.DepartmentId, Settings.Default.LocalObjectTypes);
 
                 totalCount = table.Count;
 

@@ -54,15 +54,6 @@ namespace Micajah.FileService.Tools.CopyFilesToFolder.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("d4829403-e803-410c-a43e-32d7b8a5e36d")]
-        public global::System.Guid OrganizationId {
-            get {
-                return ((global::System.Guid)(this["OrganizationId"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("d4829403-e803-410c-a43e-32d7b8a5e36d")]
         public global::System.Guid DepartmentId {
             get {
                 return ((global::System.Guid)(this["DepartmentId"]));
